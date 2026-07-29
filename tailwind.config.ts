@@ -21,7 +21,9 @@ const config: Config = {
       },
       colors: {
         background: 'hsl(var(--background))',
+        'background-elevated': 'hsl(var(--background-elevated))',
         foreground: 'hsl(var(--foreground))',
+        'foreground-muted': 'hsl(var(--foreground-muted))',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -37,6 +39,7 @@ const config: Config = {
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
           foreground: 'hsl(var(--secondary-foreground))',
+          deep: 'hsl(var(--secondary-deep))',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
@@ -50,6 +53,14 @@ const config: Config = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        warning: {
+          DEFAULT: 'hsl(var(--warning))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -60,23 +71,31 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        ink: {
+          950: '#090812',
+          900: '#0d0c1a',
+          800: '#152A50',
+        },
+        neon: {
+          blue: '#20589A',
+          'blue-bright': '#2a6bb8',
+          red: '#9A1826',
+          'red-bright': '#b81e2e',
+          'red-deep': '#571920',
+        },
+        cream: {
+          DEFAULT: '#F0E6E4',
+          muted: '#A0A0A8',
+        },
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
         },
       },
       animation: {

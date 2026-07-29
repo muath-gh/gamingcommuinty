@@ -214,10 +214,10 @@ useEffect(() => {
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 50 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto border border-slate-700 shadow-2xl"
+            className="glass-strong rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto neon-border-blue shadow-2xl"
             dir="rtl"
           >
-            <div className="sticky top-0 z-10 bg-slate-900/95 backdrop-blur-xl border-b border-slate-700 p-6">
+            <div className="sticky top-0 z-10 glass-strong border-b border-neon-blue/15 p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <motion.div
@@ -228,13 +228,13 @@ useEffect(() => {
                       ease: 'linear',
                     }}
                   >
-                    <Sparkles className="w-8 h-8 text-cyan-400" />
+                    <Sparkles className="w-8 h-8 text-blue-400" />
                   </motion.div>
                   <div>
-                    <h2 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <h2 className="text-3xl font-bold text-cream text-glow-blue">
                       رفع ميديا
                     </h2>
-                    <p className="text-slate-400 text-sm mt-1">
+                    <p className="text-cream-muted text-sm mt-1">
                       شارك لحظاتك الملحمية في الألعاب
                     </p>
                   </div>
@@ -243,7 +243,7 @@ useEffect(() => {
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setShowUploadModal(false)}
-                  className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors"
+                  className="p-2 rounded-lg glass border-neon-blue/20 hover:border-neon-blue/50 transition-colors"
                 >
                   <X className="w-6 h-6" />
                 </motion.button>
@@ -255,7 +255,7 @@ useEffect(() => {
                 <div className="lg:col-span-2 space-y-6">
                   <GamingCard className="p-6">
                     <div className="flex items-center justify-between mb-6">
-                      <Label className="text-lg font-semibold text-white">
+                      <Label className="text-lg font-semibold text-cream">
                         نوع الميديا
                       </Label>
                       <div className="flex gap-2">
@@ -265,8 +265,8 @@ useEffect(() => {
                             onClick={() => setMediaType(type)}
                             className={`px-4 py-2 rounded-lg font-medium transition-all flex items-center gap-2 ${
                               mediaType === type
-                                ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg shadow-cyan-500/50'
-                                : 'bg-slate-800 text-slate-400 hover:text-white'
+                                ? 'btn-primary glow-blue'
+                                : 'btn-ghost'
                             }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
@@ -286,8 +286,8 @@ useEffect(() => {
                       {...getRootProps()}
                       className={`relative border-2 border-dashed rounded-xl p-12 transition-all cursor-pointer ${
                         isDragActive
-                          ? 'border-cyan-400 bg-cyan-500/10 shadow-lg shadow-cyan-500/20'
-                          : 'border-slate-700 hover:border-purple-400 bg-slate-800/50'
+                          ? 'border-neon-blue bg-neon-blue/10 shadow-lg shadow-[0_0_20px_rgba(32,88,154,0.3)]'
+                          : 'border-neon-blue/25 hover:border-neon-blue/60 bg-ink-900/50'
                       }`}
                     >
                       <input {...getInputProps()} />
@@ -301,19 +301,19 @@ useEffect(() => {
                         >
                           <Upload
                             className={`w-16 h-16 ${
-                              isDragActive ? 'text-cyan-400' : 'text-slate-500'
+                              isDragActive ? 'text-blue-400' : 'text-cream-muted'
                             }`}
                           />
                         </motion.div>
-                        <p className="text-xl font-semibold text-white mb-2">
+                        <p className="text-xl font-semibold text-cream mb-2">
                           {isDragActive
                             ? 'أفلت الملفات هنا!'
                             : 'اسحب وأفلت الملفات هنا'}
                         </p>
-                        <p className="text-slate-400 mb-4">
+                        <p className="text-cream-muted mb-4">
                           أو انقر للتصفح من جهازك
                         </p>
-                        <div className="flex gap-4 text-sm text-slate-500">
+                        <div className="flex gap-4 text-sm text-cream-muted">
                           <span>
                             الحد الأقصى: {mediaType === 'image' ? '10 ميجابايت' : '100 ميجابايت'}
                           </span>
@@ -341,7 +341,7 @@ useEffect(() => {
                               initial={{ opacity: 0, scale: 0.8 }}
                               animate={{ opacity: 1, scale: 1 }}
                               exit={{ opacity: 0, scale: 0.8 }}
-                              className="relative group rounded-lg overflow-hidden bg-slate-800 border border-slate-700"
+                              className="relative group rounded-lg overflow-hidden surface border-neon-blue/15"
                               whileHover={{ scale: 1.05 }}
                             >
                               <div
@@ -360,22 +360,22 @@ useEffect(() => {
                                     className="w-full h-full object-cover"
                                   />
                                 )}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                               </div>
 
                               <div className="p-3">
                                 <div className="flex items-start justify-between mb-2">
                                   <div className="flex-1 min-w-0">
-                                    <p className="text-sm font-medium text-white truncate">
+                                    <p className="text-sm font-medium text-cream truncate">
                                       {file.file.name}
                                     </p>
-                                    <p className="text-xs text-slate-400">
+                                    <p className="text-xs text-cream-muted">
                                       {formatFileSize(file.file.size)}
                                     </p>
                                   </div>
                                   <motion.button
                                     onClick={() => removeFile(file.preview)}
-                                    className="mr-2 p-1 rounded-lg bg-red-500/20 text-red-400 hover:bg-red-500 hover:text-white transition-colors"
+                                    className="mr-2 p-1 rounded-lg bg-neon-red/20 text-red-400 hover:bg-neon-red hover:text-cream transition-colors"
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
                                   >
@@ -383,19 +383,19 @@ useEffect(() => {
                                   </motion.button>
                                 </div>
 
-                                <div className="relative h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div className="relative h-2 bg-ink-900/80 rounded-full overflow-hidden border border-neon-blue/10">
                                   <motion.div
                                     initial={{ width: 0 }}
                                     animate={{ width: `${file.progress}%` }}
                                     className={`h-full rounded-full ${
                                       file.uploaded
-                                        ? 'bg-gradient-to-r from-green-500 to-emerald-500'
-                                        : 'bg-gradient-to-r from-cyan-500 to-purple-500'
+                                        ? 'bg-gradient-to-r from-emerald-600 to-emerald-400'
+                                        : 'bg-gradient-to-r from-neon-blue to-blue-400'
                                     }`}
                                   />
                                 </div>
                                 <div className="flex items-center justify-between mt-2">
-                                  <span className="text-xs text-slate-400">
+                                  <span className="text-xs text-cream-muted">
                                     {file.progress}%
                                   </span>
                                   {file.uploaded && (
@@ -403,7 +403,7 @@ useEffect(() => {
                                       initial={{ scale: 0 }}
                                       animate={{ scale: 1 }}
                                     >
-                                      <Check className="w-4 h-4 text-green-400" />
+                                      <Check className="w-4 h-4 text-emerald-400" />
                                     </motion.div>
                                   )}
                                 </div>
@@ -416,8 +416,8 @@ useEffect(() => {
                   </GamingCard>
 
                   <GamingCard className="p-6">
-                    <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                      <Zap className="w-5 h-5 text-yellow-400" />
+                    <h2 className="text-xl font-bold text-cream mb-6 flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-amber-400" />
                       تفاصيل الميديا
                     </h2>
 
@@ -431,11 +431,11 @@ useEffect(() => {
                           value={title}
                           onChange={(e) => setTitle(e.target.value)}
                           placeholder="أدخل عنواناً ملحمياً..."
-                          className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-cyan-400 focus:ring-cyan-400/20"
+                          className="input-gaming"
                           maxLength={100}
                           dir="auto"
                         />
-                        <p className="text-xs text-slate-400 mt-1 text-left">
+                        <p className="text-xs text-cream-muted mt-1 text-left">
                           {title.length}/100
                         </p>
                       </div>
@@ -443,7 +443,7 @@ useEffect(() => {
                       <div>
                         <Label
                           htmlFor="description"
-                          className="text-white mb-2 block"
+                          className="text-cream mb-2 block"
                         >
                           الوصف
                         </Label>
@@ -452,35 +452,35 @@ useEffect(() => {
                           value={description}
                           onChange={(e) => setDescription(e.target.value)}
                           placeholder="أخبرنا عن هذه اللحظة..."
-                          className="bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 focus:border-purple-400 focus:ring-purple-400/20 min-h-[120px]"
+                          className="input-gaming min-h-[120px]"
                           maxLength={500}
                           dir="auto"
                         />
-                        <p className="text-xs text-slate-400 mt-1 text-left">
+                        <p className="text-xs text-cream-muted mt-1 text-left">
                           {description.length}/500
                         </p>
                       </div>
 
                       <div>
-                        <Label htmlFor="game" className="text-white mb-2 block">
+                        <Label htmlFor="game" className="text-cream mb-2 block">
                           اللعبة
                         </Label>
                      <Select
   value={selectedGame}
   onValueChange={setSelectedGame}
 >
-  <SelectTrigger className="bg-slate-800 border-slate-700 text-white focus:border-pink-400 focus:ring-pink-400/20">
+  <SelectTrigger className="input-gaming">
     <SelectValue
       placeholder={gamesLoading ? 'جاري تحميل الألعاب...' : 'اختر لعبة'}
     />
   </SelectTrigger>
 
-  <SelectContent className="bg-slate-800 border-slate-700">
+  <SelectContent className="glass-strong border-neon-blue/20">
     {games.map((game) => (
       <SelectItem
         key={game.id}
         value={game.id}    
-        className="text-white hover:bg-slate-700"
+        className="text-cream hover:bg-neon-blue/10"
       >
         {game.name}        
       </SelectItem>
@@ -495,8 +495,8 @@ useEffect(() => {
 
                 <div className="space-y-6">
                   <GamingCard className="p-6">
-                    <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                      <Tag className="w-5 h-5 text-cyan-400" />
+                    <h2 className="text-xl font-bold text-cream mb-4 flex items-center gap-2">
+                      <Tag className="w-5 h-5 text-blue-400" />
                       الوسوم
                     </h2>
                     <div className="flex flex-wrap gap-2">
@@ -506,8 +506,8 @@ useEffect(() => {
                           onClick={() => toggleTag(tag)}
                           className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
                             selectedTags.includes(tag)
-                              ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg shadow-cyan-500/30'
-                              : 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700'
+                              ? 'btn-primary glow-blue'
+                              : 'btn-ghost'
                           }`}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
@@ -526,19 +526,19 @@ useEffect(() => {
                       <div>
                         <Label
                           htmlFor="featured"
-                          className="text-white font-semibold"
+                          className="text-cream font-semibold"
                         >
                           محتوى مميز
                         </Label>
-                        <p className="text-sm text-slate-400 mt-1">
+                        <p className="text-sm text-cream-muted mt-1">
                           إبرازه في المعرض
                         </p>
                       </div>
                       <motion.div
                         animate={{
                           boxShadow: featured
-                            ? '0 0 20px rgba(168, 85, 247, 0.6)'
-                            : '0 0 0px rgba(168, 85, 247, 0)',
+                            ? '0 0 20px rgba(32, 88, 154, 0.5)'
+                            : '0 0 0px rgba(32, 88, 154, 0)',
                         }}
                         className="rounded-full"
                       >
@@ -561,7 +561,7 @@ useEffect(() => {
                       className="w-full h-14 text-lg font-bold relative overflow-hidden group"
                     >
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500"
+                        className="absolute inset-0 bg-gradient-to-r from-neon-blue via-blue-500 to-neon-red"
                         animate={{
                           x: isSubmitting ? ['-100%', '100%'] : '0%',
                         }}
@@ -608,7 +608,7 @@ useEffect(() => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setExpandedFile(null)}
-            className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-[60] bg-ink-950/90 backdrop-blur-sm flex items-center justify-center p-4"
           >
             <motion.div
               initial={{ scale: 0.8 }}
@@ -619,7 +619,7 @@ useEffect(() => {
             >
               <button
                 onClick={() => setExpandedFile(null)}
-                className="absolute -top-12 left-0 p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
+                className="absolute -top-12 left-0 p-2 rounded-lg glass-strong hover:border-neon-blue/50 text-cream transition-colors neon-border-blue"
               >
                 <X className="w-6 h-6" />
               </button>

@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Languages, ThumbsUp, ThumbsDown, DollarSign, CheckCircle2, Clock } from 'lucide-react';
+import { Languages, ThumbsUp, ThumbsDown, DollarSign, CircleCheck as CheckCircle2, Clock } from 'lucide-react';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { GamingButton } from '@/components/gaming/GamingButton';
 import { GamingCard } from '@/components/gaming/GamingCard';
 import { Badge } from '@/components/gaming/Badge';
+import { GlowText } from '@/components/gaming/GlowText';
 import { mockGames, mockUsers } from '@/lib/mockData';
 
 interface Translation {
@@ -21,83 +22,50 @@ interface Translation {
 }
 
 const mockTranslations: Translation[] = [
-  {
-    id: 't1',
-    gameId: 'g1',
-    originalText: 'Start Game',
-    translatedText: 'ابدأ اللعبة',
-    contributor: '1',
-    votes: 15,
-    status: 'approved',
-    createdAt: '2024-01-05T10:00:00Z',
-  },
-  {
-    id: 't2',
-    gameId: 'g1',
-    originalText: 'Settings',
-    translatedText: 'الإعدادات',
-    contributor: '2',
-    votes: 12,
-    status: 'approved',
-    createdAt: '2024-01-06T14:30:00Z',
-  },
-  {
-    id: 't3',
-    gameId: 'g2',
-    originalText: 'Character Selection',
-    translatedText: 'اختيار الشخصية',
-    contributor: '3',
-    votes: 8,
-    status: 'pending',
-    createdAt: '2024-01-07T09:15:00Z',
-  },
+  { id: 't1', gameId: 'g1', originalText: 'Start Game', translatedText: 'ابدأ اللعبة', contributor: '1', votes: 15, status: 'approved', createdAt: '2024-01-05T10:00:00Z' },
+  { id: 't2', gameId: 'g1', originalText: 'Settings', translatedText: 'الإعدادات', contributor: '2', votes: 12, status: 'approved', createdAt: '2024-01-06T14:30:00Z' },
+  { id: 't3', gameId: 'g2', originalText: 'Character Selection', translatedText: 'اختيار الشخصية', contributor: '3', votes: 8, status: 'pending', createdAt: '2024-01-07T09:15:00Z' },
 ];
 
 export default function TranslationsPage() {
   const [filter, setFilter] = useState<'all' | 'pending' | 'approved'>('all');
   const [showContributeModal, setShowContributeModal] = useState(false);
 
-  const filteredTranslations = mockTranslations.filter(
-    t => filter === 'all' || t.status === filter
-  );
+  const filteredTranslations = mockTranslations.filter(t => filter === 'all' || t.status === filter);
 
   return (
     <PageContainer>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="space-y-8"
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-8">
         <div>
-          <h1 className="text-5xl font-bold mb-4 gradient-text">Arabic Translations</h1>
-          <p className="text-xl text-slate-400">Help localize games for Arabic-speaking players</p>
+          <h1 className="text-5xl font-bold mb-4 gradient-text">الترجمات العربية</h1>
+          <p className="text-xl text-cream-muted">ساعد في تعريب الألعاب للاعبين العرب</p>
         </div>
 
         <GamingCard gradient glow className="p-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <Languages className="w-24 h-24 text-blue-500" />
+            <Languages className="w-24 h-24 text-blue-400" />
             <div className="flex-1">
-              <h2 className="text-3xl font-bold mb-4">Contribute Translations</h2>
-              <p className="text-slate-300 mb-6">
-                Join our localization community and help make games accessible to millions of Arabic speakers. Earn XP, badges, and receive donations from grateful players!
+              <h2 className="text-3xl font-bold mb-4 text-cream">ساهم بالترجمة</h2>
+              <p className="text-cream-muted mb-6">
+                انضم لمجتمع التعريب وساعد في جعل الألعاب متاحة لملايين العرب. اكسب XP وشارات وتلقّ تبرعات من اللاعبين الممتنين!
               </p>
               <div className="flex gap-4">
                 <GamingButton size="lg" glow onClick={() => setShowContributeModal(true)}>
-                  Submit Translation
+                  تقديم ترجمة
                 </GamingButton>
                 <GamingButton variant="ghost" size="lg">
-                  Translation Guide
+                  دليل الترجمة
                 </GamingButton>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
                 <div className="text-4xl font-bold text-blue-400 mb-2">2,500+</div>
-                <div className="text-sm text-slate-400">Translations</div>
+                <div className="text-sm text-cream-muted">ترجمة</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">150+</div>
-                <div className="text-sm text-slate-400">Contributors</div>
+                <div className="text-4xl font-bold text-red-400 mb-2">150+</div>
+                <div className="text-sm text-cream-muted">مترجم</div>
               </div>
             </div>
           </div>
@@ -109,18 +77,16 @@ export default function TranslationsPage() {
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-6 py-2 rounded-lg font-medium transition-all capitalize ${
-                  filter === f
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700'
+                className={`px-6 py-2 rounded-lg font-medium transition-all ${
+                  filter === f ? 'btn-primary glow-blue' : 'btn-ghost'
                 }`}
               >
-                {f}
+                {f === 'all' ? 'الكل' : f === 'pending' ? 'قيد الانتظار' : 'مقبولة'}
               </button>
             ))}
           </div>
-          <select className="px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-lg focus:outline-none focus:border-blue-500">
-            <option>All Games</option>
+          <select className="input-gaming rounded-lg px-4 py-2">
+            <option>كل الألعاب</option>
             {mockGames.map(game => (
               <option key={game.id}>{game.title}</option>
             ))}
@@ -133,58 +99,42 @@ export default function TranslationsPage() {
             const contributor = mockUsers.find(u => u.id === translation.contributor);
 
             return (
-              <motion.div
-                key={translation.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-              >
+              <motion.div key={translation.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.05 }}>
                 <GamingCard hover>
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex items-center gap-4 flex-1">
-                        <img
-                          src={game?.coverImage}
-                          alt={game?.title}
-                          className="w-16 h-20 object-cover rounded"
-                        />
+                        <img src={game?.coverImage} alt={game?.title} className="w-16 h-20 object-cover rounded-lg neon-border-blue" />
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-2">
-                            <h3 className="text-xl font-bold">{game?.title}</h3>
+                            <h3 className="text-xl font-bold text-cream">{game?.title}</h3>
                             <Badge
-                              variant={
-                                translation.status === 'approved' ? 'success' :
-                                translation.status === 'pending' ? 'warning' : 'danger'
-                              }
+                              variant={translation.status === 'approved' ? 'success' : translation.status === 'pending' ? 'warning' : 'danger'}
                               glow={translation.status === 'approved'}
                             >
                               {translation.status === 'approved' && <CheckCircle2 className="w-3 h-3 mr-1" />}
                               {translation.status === 'pending' && <Clock className="w-3 h-3 mr-1" />}
-                              {translation.status}
+                              {translation.status === 'approved' ? 'مقبولة' : translation.status === 'pending' ? 'قيد الانتظار' : 'مرفوضة'}
                             </Badge>
                           </div>
-                          <div className="flex items-center gap-3 text-sm text-slate-400">
-                            <img
-                              src={contributor?.avatar}
-                              alt={contributor?.displayName}
-                              className="w-6 h-6 rounded-full"
-                            />
+                          <div className="flex items-center gap-3 text-sm text-cream-muted">
+                            <img src={contributor?.avatar} alt={contributor?.displayName} className="w-6 h-6 rounded-full" />
                             <span>{contributor?.displayName}</span>
                             <span>•</span>
-                            <span>{new Date(translation.createdAt).toLocaleDateString()}</span>
+                            <span>{new Date(translation.createdAt).toLocaleDateString('ar-SA')}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
-                      <div className="p-4 bg-slate-800/30 rounded-lg">
-                        <div className="text-sm text-slate-400 mb-2">Original (English)</div>
-                        <div className="text-lg font-semibold">{translation.originalText}</div>
+                      <div className="p-4 surface rounded-lg">
+                        <div className="text-sm text-cream-muted mb-2">النص الأصلي (English)</div>
+                        <div className="text-lg font-semibold text-cream">{translation.originalText}</div>
                       </div>
-                      <div className="p-4 bg-slate-800/30 rounded-lg">
-                        <div className="text-sm text-slate-400 mb-2">Translation (Arabic)</div>
-                        <div className="text-lg font-semibold text-right" dir="rtl">
+                      <div className="p-4 surface rounded-lg">
+                        <div className="text-sm text-cream-muted mb-2">الترجمة (Arabic)</div>
+                        <div className="text-lg font-semibold text-right text-blue-400" dir="rtl">
                           {translation.translatedText}
                         </div>
                       </div>
@@ -192,17 +142,17 @@ export default function TranslationsPage() {
 
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <button className="flex items-center gap-2 px-4 py-2 bg-green-600/20 text-green-400 rounded-lg hover:bg-green-600/30 transition-colors">
+                        <button className="flex items-center gap-2 px-4 py-2 bg-emerald-600/15 text-emerald-400 rounded-lg hover:bg-emerald-600/25 transition-colors">
                           <ThumbsUp className="w-4 h-4" />
                           <span>{translation.votes}</span>
                         </button>
-                        <button className="flex items-center gap-2 px-4 py-2 bg-red-600/20 text-red-400 rounded-lg hover:bg-red-600/30 transition-colors">
+                        <button className="flex items-center gap-2 px-4 py-2 bg-neon-red/15 text-red-400 rounded-lg hover:bg-neon-red/25 transition-colors">
                           <ThumbsDown className="w-4 h-4" />
                         </button>
                       </div>
                       <GamingButton variant="accent" size="sm">
-                        <DollarSign className="w-4 h-4 mr-2" />
-                        Tip Contributor
+                        <DollarSign className="w-4 h-4 ml-2" />
+                        إكرامية للمترجم
                       </GamingButton>
                     </div>
                   </div>
@@ -214,20 +164,16 @@ export default function TranslationsPage() {
 
         <GamingCard>
           <div className="p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Top Contributors This Month</h3>
+            <h3 className="text-2xl font-bold mb-4 text-cream">أفضل المترجمين هذا الشهر</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {mockUsers.slice(0, 3).map((user, index) => (
-                <div key={user.id} className="p-6 bg-slate-800/30 rounded-lg">
-                  <img
-                    src={user.avatar}
-                    alt={user.displayName}
-                    className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-blue-500"
-                  />
-                  <h4 className="font-bold text-lg mb-2">{user.displayName}</h4>
+                <div key={user.id} className="p-6 surface rounded-lg">
+                  <img src={user.avatar} alt={user.displayName} className="w-20 h-20 rounded-full mx-auto mb-4 border-2 border-neon-blue/50" />
+                  <h4 className="font-bold text-lg mb-2 text-cream">{user.displayName}</h4>
                   <div className="text-2xl font-bold text-blue-400 mb-1">
                     {parseInt(user.id) * 45 + 120}
                   </div>
-                  <div className="text-sm text-slate-400">Translations</div>
+                  <div className="text-sm text-cream-muted">ترجمة</div>
                 </div>
               ))}
             </div>

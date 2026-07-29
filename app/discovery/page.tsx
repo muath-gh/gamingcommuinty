@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -113,10 +114,50 @@ const activityTypes = [
     color: "text-pink-400",
     bg: "from-pink-500/20 to-rose-500/20",
   },
+=======
+'use client';
+import React, { useState,useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, X, Filter, Gamepad2, Users, Clock, Mic, MicOff, Trophy, Target, Zap, Globe, MessageCircle, Shield, Star, Swords, Plus, Send, Sparkles } from 'lucide-react';
+import { GamingCard } from '@/components/gaming/GamingCard';
+import { GamingButton } from '@/components/gaming/GamingButton';
+import { Badge } from '@/components/gaming/Badge';
+import { GlowText } from '@/components/gaming/GlowText';
+import {timeAgo} from '../../lib/utils';
+type ValidationError = {
+  field: string
+  message: string
+}
+const popularGames = [
+  { name: 'فالورانت', icon: '🎯', color: 'from-neon-red to-red-400', players: 2500 },
+  { name: 'ليج أوف ليجندز', icon: '⚔️', color: 'from-neon-blue to-blue-400', players: 3200 },
+  { name: 'أبيكس ليجندز', icon: '🎮', color: 'from-amber-500 to-red-400', players: 1800 },
+  { name: 'CS:GO', icon: '🔫', color: 'from-amber-400 to-amber-600', players: 2100 },
+  { name: 'فورتنايت', icon: '🌟', color: 'from-neon-blue to-cyan-400', players: 2800 },
+  { name: 'أوفرواتش 2', icon: '🛡️', color: 'from-amber-400 to-amber-500', players: 1500 },
+  { name: 'روكيت ليج', icon: '🚗', color: 'from-neon-blue to-blue-300', players: 1200 },
+  { name: 'ماينكرافت', icon: '🟫', color: 'from-emerald-600 to-emerald-400', players: 3500 },
+];
+
+const platforms = [
+  { name: 'الحاسوب', icon: '💻', color: 'from-neon-blue to-blue-400' },
+  { name: 'بلايستيشن', icon: '🎮', color: 'from-neon-blue to-blue-500' },
+  { name: 'إكس بوكس', icon: '🎯', color: 'from-emerald-600 to-emerald-400' },
+  { name: 'نينتندو سويتش', icon: '🕹️', color: 'from-neon-red to-red-400' },
+  { name: 'الجوال', icon: '📱', color: 'from-neon-blue to-cyan-400' },
+];
+
+const activityTypes = [
+  { name: 'تصنيف', icon: Trophy, color: 'text-amber-400', bg: 'from-amber-500/20 to-orange-500/20' },
+  { name: 'عادي', icon: Gamepad2, color: 'text-blue-400', bg: 'from-neon-blue/20 to-blue-500/20' },
+  { name: 'تعاوني', icon: Users, color: 'text-emerald-400', bg: 'from-emerald-600/20 to-emerald-400/20' },
+  { name: 'بطولة', icon: Target, color: 'text-red-400', bg: 'from-neon-red/20 to-red-400/20' },
+>>>>>>> e42140751903e0eb5f1b4d6554d1f1b43c2657e2
 ];
 
 const teamSizes = ["1ضد1", "2ضد2", "3ضد3", "5ضد5", "فريق", "أي"];
 
+<<<<<<< HEAD
 // ── Types ───────────────────────────────────────────────────────────────
 type GameFromDB = {
   id: string;
@@ -132,6 +173,8 @@ type PlatformFromDB = {
   icon?: string | null;
 };
 
+=======
+>>>>>>> e42140751903e0eb5f1b4d6554d1f1b43c2657e2
 export default function PlayerDiscoveryPage() {
   const [validationErrors, setValidationErrors] = useState<ValidationError[]>(
     [],
@@ -366,6 +409,7 @@ export default function PlayerDiscoveryPage() {
 
   // ── Render ───────────────────────────────────────────────────────────
   return (
+<<<<<<< HEAD
     <div className="min-h-screen bg-slate-950 text-white">
       <AnimatePresence>
         {showDeleteConfirm && (
@@ -448,6 +492,13 @@ export default function PlayerDiscoveryPage() {
       {/* Hero */}
       <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-cyan-900/20 to-slate-900 py-16 px-6">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress')] opacity-5 bg-cover bg-center" />
+=======
+    <div className="min-h-screen ambient-bg text-cream">
+      <div className="relative overflow-hidden py-16 px-6">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-neon-red/8 rounded-full blur-3xl animate-pulse-glow" />
+>>>>>>> e42140751903e0eb5f1b4d6554d1f1b43c2657e2
         <div className="relative max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -455,14 +506,14 @@ export default function PlayerDiscoveryPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-8"
           >
-            <Badge variant="success" glow className="mb-6 inline-flex">
+            <Badge variant="info" glow className="mb-6 inline-flex">
               <Users className="w-4 h-4 ml-2" />
               {playRequests.length}+ طلب لعب نشط
             </Badge>
-            <h1 className="text-6xl md:text-7xl font-black mb-4">
+            <h1 className="text-6xl md:text-7xl font-black mb-4 text-cream">
               ابحث عن <GlowText color="blue">فريقك</GlowText>
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-cream-muted max-w-3xl mx-auto">
               تواصل مع اللاعبين الذين يطابقون أسلوب لعبك ومستوى مهارتك
             </p>
           </motion.div>
@@ -474,20 +525,25 @@ export default function PlayerDiscoveryPage() {
             className="max-w-4xl mx-auto"
           >
             <div className="relative">
-              <Search className="absolute right-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-slate-400" />
+              <Search className="absolute right-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-cream-muted" />
               <input
                 type="text"
                 placeholder="ابحث عن لعبة، لاعب، أو وسم..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-900/50 backdrop-blur-xl border-2 border-slate-700 rounded-2xl pr-16 pl-6 py-5 text-lg focus:outline-none focus:border-cyan-500 transition-all text-right"
+                className="w-full input-gaming rounded-2xl pr-16 pl-6 py-5 text-lg text-right"
               />
               {searchQuery && (
                 <motion.button
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
+<<<<<<< HEAD
                   onClick={() => setSearchQuery("")}
                   className="absolute left-6 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+=======
+                  onClick={() => setSearchQuery('')}
+                  className="absolute left-6 top-1/2 transform -translate-y-1/2 text-cream-muted hover:text-cream transition-colors"
+>>>>>>> e42140751903e0eb5f1b4d6554d1f1b43c2657e2
                 >
                   <X className="w-5 h-5" />
                 </motion.button>
@@ -516,57 +572,40 @@ export default function PlayerDiscoveryPage() {
                 className="relative"
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 rounded-3xl blur-2xl opacity-30"
+                  className="absolute inset-0 bg-gradient-to-r from-neon-blue/30 via-transparent to-neon-red/30 rounded-2xl blur-xl opacity-40"
                   animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 />
                 <motion.button
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setShowCreateForm(true)}
-                  className="relative w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 rounded-3xl p-8 overflow-hidden group"
+                  className="relative w-full surface surface-hover rounded-2xl p-8 overflow-hidden group"
                 >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 opacity-0 group-hover:opacity-100"
-                    transition={{ duration: 0.5 }}
-                  />
                   <div className="relative flex items-center justify-between">
                     <div className="flex items-center gap-6">
                       <motion.div
                         whileHover={{ rotate: 180, scale: 1.2 }}
                         transition={{ duration: 0.5 }}
-                        className="w-20 h-20 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center"
+                        className="w-20 h-20 glass rounded-2xl flex items-center justify-center neon-border-blue"
                       >
-                        <Plus
-                          className="w-10 h-10 text-white"
-                          strokeWidth={3}
-                        />
+                        <Plus className="w-10 h-10 text-blue-400" strokeWidth={3} />
                       </motion.div>
                       <div className="text-right">
-                        <h3 className="text-3xl font-black text-white mb-2 flex items-center gap-3 justify-end">
+                        <h3 className="text-3xl font-black text-cream mb-2 flex items-center gap-3 justify-end">
+                          <Sparkles className="w-8 h-8 text-blue-400" />
                           أنشئ طلب لعب جديد
                         </h3>
-                        <p className="text-cyan-50 text-lg">
+                        <p className="text-cream-muted text-lg">
                           ابحث عن زملاء اللعب المثاليين لجلستك القادمة
                         </p>
                       </div>
                     </div>
                     <motion.div
                       animate={{ x: [0, 10, 0] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                     >
-                      <Zap
-                        className="w-12 h-12 text-yellow-300"
-                        fill="currentColor"
-                      />
+                      <Zap className="w-12 h-12 text-amber-400" fill="currentColor" />
                     </motion.div>
                   </div>
                 </motion.button>
@@ -581,95 +620,75 @@ export default function PlayerDiscoveryPage() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="overflow-hidden"
               >
-                <GamingCard className="p-10 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-cyan-500/30 relative overflow-hidden">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/10 to-cyan-500/10"
-                    animate={{ opacity: [0.1, 0.2, 0.1] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  />
+                <GamingCard className="p-10 neon-border-blue relative overflow-hidden">
                   <div className="relative">
                     <div className="flex items-center justify-between mb-8 flex-row-reverse">
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => setShowCreateForm(false)}
-                        className="px-6 py-3 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl flex items-center gap-2 transition-all border border-slate-700"
+                        className="btn-ghost px-6 py-3 rounded-xl flex items-center gap-2"
                       >
                         <X className="w-5 h-5" /> إلغاء
                       </motion.button>
                       <div className="text-right">
-                        <h2 className="text-4xl font-black flex items-center gap-3 justify-end">
-                          <Sparkles className="w-8 h-8 text-cyan-400" />
+                        <h2 className="text-4xl font-black flex items-center gap-3 justify-end text-cream">
+                          <Sparkles className="w-8 h-8 text-blue-400" />
                           <GlowText color="blue">طلب لعب جديد</GlowText>
                         </h2>
-                        <p className="text-slate-400 mt-2">
-                          املأ التفاصيل لإنشاء طلبك
-                        </p>
+                        <p className="text-cream-muted mt-2">املأ التفاصيل لإنشاء طلبك</p>
                       </div>
                     </div>
-
-                    <AnimatePresence>
-                      {validationErrors.length > 0 && (
-                        <motion.div
-                          initial={{ opacity: 0, height: 0, y: -20 }}
-                          animate={{ opacity: 1, height: "auto", y: 0 }}
-                          exit={{ opacity: 0, height: 0, y: -20 }}
-                          transition={{
-                            type: "spring",
-                            damping: 25,
-                            stiffness: 300,
-                          }}
-                          className="mb-6 overflow-hidden"
-                        >
-                          <div className="relative bg-gradient-to-br from-red-500/10 via-red-600/10 to-pink-500/10 border-2 border-red-500/50 rounded-2xl p-5 space-y-2">
-                            {validationErrors.map((error, index) => (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: index * 0.1 }}
-                                className="flex items-center gap-2 text-red-300 bg-red-500/10 p-2.5 rounded-lg border border-red-500/30"
-                              >
-                                <span className="w-1.5 h-1.5 bg-red-400 rounded-full" />
-                                <span className="text-sm font-medium">
-                                  {error.message}
-                                </span>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
+  <AnimatePresence>
+    {validationErrors.length > 0 && (
+      <motion.div
+        initial={{ opacity: 0, height: 0, y: -20 }}
+        animate={{ opacity: 1, height: 'auto', y: 0 }}
+        exit={{ opacity: 0, height: 0, y: -20 }}
+        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+        className="mb-6 overflow-hidden"
+      >
+        <div className="relative bg-neon-red/10 border border-neon-red/40 rounded-2xl p-5 space-y-2">
+          {validationErrors.map((error, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="flex items-center gap-2 text-red-300 bg-neon-red/10 p-2.5 rounded-lg border border-neon-red/20"
+            >
+              <span className="w-1.5 h-1.5 bg-red-400 rounded-full" />
+              <span className="text-sm font-medium">{error.message}</span>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    )}
+  </AnimatePresence>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="space-y-3"
-                      >
-                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end flex-row-reverse">
-                          <span className="text-cyan-400">*</span> اللعبة{" "}
-                          <Gamepad2 className="w-5 h-5 text-cyan-400" />
+                      <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.1 }} className="space-y-3">
+                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end text-cream">
+                          <span className="text-blue-400">*</span>
+                          اللعبة
+                          <Gamepad2 className="w-5 h-5 text-blue-400" />
                         </label>
                         <GameAutocomplete
                           value={formData.gameId}
-                          onChange={(gameId, gameName) =>
-                            setFormData({ ...formData, gameId })
-                          }
-                          placeholder="ابحث عن اللعبة..."
-                        />
+                          onChange={(e) => setFormData({ ...formData, gameId: e.target.value })}
+                          className="w-full input-gaming rounded-xl px-6 py-4 text-lg text-right"
+                        >
+                          <option value="">اختر اللعبة</option>
+                          {games.map((game) => (
+                            <option key={game.id} value={game.id}>{game.name}</option>
+                          ))}
+                        </select>
                       </motion.div>
 
-                      <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="space-y-3"
-                      >
-                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end flex-row-reverse">
-                          <span className="text-cyan-400">*</span> عدد اللاعبين
-                          المطلوبين <Users className="w-5 h-5 text-cyan-400" />
+                      <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="space-y-3">
+                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end text-cream">
+                          <span className="text-blue-400">*</span>
+                          عدد اللاعبين المطلوبين
+                          <Users className="w-5 h-5 text-blue-400" />
                         </label>
                         <div className="flex gap-3">
                           {[1, 2, 3, 4, 5, 6].map((num) => (
@@ -677,10 +696,12 @@ export default function PlayerDiscoveryPage() {
                               key={num}
                               whileHover={{ scale: 1.1, y: -3 }}
                               whileTap={{ scale: 0.9 }}
-                              onClick={() =>
-                                setFormData({ ...formData, playersNeeded: num })
-                              }
-                              className={`flex-1 py-4 rounded-xl font-bold text-xl transition-all ${formData.playersNeeded === num ? "bg-gradient-to-br from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/50" : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50 border border-slate-700"}`}
+                              onClick={() => setFormData({ ...formData, playersNeeded: num })}
+                              className={`flex-1 py-4 rounded-xl font-bold text-xl transition-all ${
+                                formData.playersNeeded === num
+                                  ? 'btn-primary glow-blue'
+                                  : 'btn-ghost'
+                              }`}
                             >
                               {num}
                             </motion.button>
@@ -688,15 +709,11 @@ export default function PlayerDiscoveryPage() {
                         </div>
                       </motion.div>
 
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="md:col-span-2 space-y-3"
-                      >
-                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end flex-row-reverse">
-                          <span className="text-cyan-400">*</span> عنوان الطلب{" "}
-                          <Star className="w-5 h-5 text-cyan-400" />
+                      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 }} className="md:col-span-2 space-y-3">
+                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end text-cream">
+                          <span className="text-blue-400">*</span>
+                          عنوان الطلب
+                          <Star className="w-5 h-5 text-blue-400" />
                         </label>
                         <input
                           type="text"
@@ -705,19 +722,15 @@ export default function PlayerDiscoveryPage() {
                             setFormData({ ...formData, title: e.target.value })
                           }
                           placeholder="مثال: أبحث عن فريق تنافسي للتصنيف"
-                          className="w-full bg-slate-800/80 border-2 border-slate-700 rounded-xl px-6 py-4 text-lg focus:outline-none focus:border-cyan-500 transition-all text-right"
+                          className="w-full input-gaming rounded-xl px-6 py-4 text-lg text-right"
                         />
                       </motion.div>
 
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="md:col-span-2 space-y-3"
-                      >
-                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end flex-row-reverse">
-                          <span className="text-cyan-400">*</span> الوصف{" "}
-                          <MessageCircle className="w-5 h-5 text-cyan-400" />
+                      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="md:col-span-2 space-y-3">
+                        <label className="text-lg font-bold text-right block flex items-center gap-2 justify-end text-cream">
+                          <span className="text-blue-400">*</span>
+                          الوصف
+                          <MessageCircle className="w-5 h-5 text-blue-400" />
                         </label>
                         <textarea
                           value={formData.description}
@@ -729,50 +742,29 @@ export default function PlayerDiscoveryPage() {
                           }
                           placeholder="اكتب وصفاً تفصيلياً عن نوع اللاعبين الذين تبحث عنهم..."
                           rows={6}
-                          className="w-full bg-slate-800/80 border-2 border-slate-700 rounded-xl px-6 py-4 text-lg focus:outline-none focus:border-cyan-500 transition-all text-right resize-none"
+                          className="w-full input-gaming rounded-xl px-6 py-4 text-lg text-right resize-none"
                         />
                       </motion.div>
                     </div>
 
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                      className="mt-8 flex gap-4 flex-row-reverse"
-                    >
-                      <motion.button
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        onClick={() => setShowCreateForm(false)}
-                        className="px-8 py-4 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl font-semibold text-lg transition-all border border-slate-700"
-                      >
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="mt-8 flex gap-4">
+                      <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setShowCreateForm(false)} className="btn-ghost px-8 py-4 rounded-xl font-semibold text-lg">
                         إلغاء
                       </motion.button>
                       <motion.button
-                        whileHover={{
-                          scale: 1.02,
-                          boxShadow: "0 0 30px rgba(34, 211, 238, 0.6)",
-                        }}
+                        whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={handleCreateRequest}
-                        disabled={
-                          isSubmitting ||
-                          !formData.gameId ||
-                          !formData.title ||
-                          !formData.description
-                        }
-                        className={`flex-1 py-4 rounded-xl font-bold text-xl flex items-center justify-center gap-3 transition-all ${isSubmitting || !formData.gameId || !formData.title || !formData.description ? "bg-slate-700 text-slate-500 cursor-not-allowed" : "bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-500 text-white shadow-lg shadow-cyan-500/50"}`}
+                        disabled={isSubmitting || !formData.gameId || !formData.title || !formData.description}
+                        className={`flex-1 py-4 rounded-xl font-bold text-xl flex items-center justify-center gap-3 transition-all ${
+                          isSubmitting || !formData.gameId || !formData.title || !formData.description
+                            ? 'bg-ink-800/50 text-cream-muted/50 cursor-not-allowed'
+                            : 'btn-primary glow-blue'
+                        }`}
                       >
                         {isSubmitting ? (
                           <>
-                            <motion.div
-                              animate={{ rotate: 360 }}
-                              transition={{
-                                duration: 1,
-                                repeat: Infinity,
-                                ease: "linear",
-                              }}
-                            >
+                            <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }}>
                               <Target className="w-6 h-6" />
                             </motion.div>{" "}
                             جاري النشر...
@@ -791,25 +783,13 @@ export default function PlayerDiscoveryPage() {
             )}
           </AnimatePresence>
         </motion.div>
-
-        {/* Popular Games — من الداتابيز */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mb-12"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="mb-12">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-3xl font-bold flex items-center gap-3">
-              <Gamepad2 className="w-8 h-8 text-cyan-400" />
-              الألعاب الأكثر نشاطاً
+            <h2 className="text-3xl font-bold flex items-center gap-3 text-cream">
+              <Gamepad2 className="w-8 h-8 text-blue-400" />
+              اختر اللعبة
             </h2>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-6 py-3 bg-slate-800/50 backdrop-blur-xl rounded-xl border border-slate-700 hover:border-cyan-500 transition-all"
-            >
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={() => setShowFilters(!showFilters)} className="btn-ghost flex items-center gap-2 px-6 py-3 rounded-xl">
               <Filter className="w-5 h-5" />
               {showFilters ? "إخفاء الفلاتر" : "إظهار الفلاتر"}
             </motion.button>
@@ -825,7 +805,15 @@ export default function PlayerDiscoveryPage() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
               >
-                <Gamepad2 className="w-16 h-16 text-slate-600" />
+                <GamingCard hover glow={selectedGame === game.name} className={`p-6 text-center relative overflow-hidden ${selectedGame === game.name ? 'neon-border-blue' : ''}`}>
+                  <motion.div className={`absolute inset-0 bg-gradient-to-br ${game.color} ${selectedGame === game.name ? 'opacity-20' : 'opacity-0'} transition-opacity`} />
+                  <div className="text-4xl mb-3 relative">{game.icon}</div>
+                  <h3 className="text-sm font-bold mb-2 relative text-cream">{game.name}</h3>
+                  <Badge variant="info" className="text-xs">
+                    <Users className="w-3 h-3 ml-1" />
+                    {game.players}
+                  </Badge>
+                </GamingCard>
               </motion.div>
               <div className="text-center">
                 <h3 className="text-xl font-bold text-slate-300 mb-2">
@@ -879,19 +867,14 @@ export default function PlayerDiscoveryPage() {
         {/* Filters */}
         <AnimatePresence>
           {showFilters && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="overflow-hidden"
-            >
-              <GamingCard className="p-8 mb-12 bg-slate-900/50 backdrop-blur-xl">
+            <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }} className="overflow-hidden">
+              <GamingCard className="p-8 mb-12 glass">
                 <div className="space-y-8">
                   {/* Platforms — من الداتابيز */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                      <Globe className="w-6 h-6 text-purple-400" /> المنصة
+                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 text-cream">
+                      <Globe className="w-6 h-6 text-blue-400" />
+                      المنصة
                     </h3>
                     <div className="flex flex-wrap gap-3">
                       {platforms.map((platform, index) => (
@@ -902,8 +885,12 @@ export default function PlayerDiscoveryPage() {
                           transition={{ delay: index * 0.05 }}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          onClick={() => togglePlatform(platform.id)}
-                          className={`px-6 py-3 rounded-xl font-semibold flex items-center gap-3 transition-all ${selectedPlatforms.includes(platform.id) ? `bg-gradient-to-r ${getPlatformColor(platform.slug)} text-white shadow-lg` : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50"}`}
+                          onClick={() => togglePlatform(platform.name)}
+                          className={`px-6 py-3 rounded-xl font-semibold flex items-center gap-3 transition-all ${
+                            selectedPlatforms.includes(platform.name)
+                              ? `bg-gradient-to-r ${platform.color} text-cream glow-blue`
+                              : 'btn-ghost'
+                          }`}
                         >
                           <span className="text-xl">
                             {platform.icon ??
@@ -917,8 +904,9 @@ export default function PlayerDiscoveryPage() {
 
                   {/* Activity — ستاتيك */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                      <Target className="w-6 h-6 text-orange-400" /> نوع النشاط
+                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 text-cream">
+                      <Target className="w-6 h-6 text-amber-400" />
+                      نوع النشاط
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       {activityTypes.map((activity, index) => (
@@ -930,12 +918,14 @@ export default function PlayerDiscoveryPage() {
                           whileHover={{ scale: 1.05, y: -5 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => toggleActivity(activity.name)}
-                          className={`p-6 rounded-2xl border-2 transition-all ${selectedActivities.includes(activity.name) ? `border-cyan-500 bg-gradient-to-br ${activity.bg}` : "border-slate-700 bg-slate-800/30 hover:border-slate-600"}`}
+                          className={`p-6 rounded-2xl border transition-all ${
+                            selectedActivities.includes(activity.name)
+                              ? `border-neon-blue/50 bg-gradient-to-br ${activity.bg}`
+                              : 'border-neon-blue/15 bg-ink-900/40 hover:border-neon-blue/30'
+                          }`}
                         >
-                          <activity.icon
-                            className={`w-8 h-8 ${activity.color} mx-auto mb-3`}
-                          />
-                          <p className="font-bold">{activity.name}</p>
+                          <activity.icon className={`w-8 h-8 ${activity.color} mx-auto mb-3`} />
+                          <p className="font-bold text-cream">{activity.name}</p>
                         </motion.button>
                       ))}
                     </div>
@@ -943,8 +933,9 @@ export default function PlayerDiscoveryPage() {
 
                   {/* Team Size — ستاتيك */}
                   <div>
-                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                      <Users className="w-6 h-6 text-green-400" /> حجم الفريق
+                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 text-cream">
+                      <Users className="w-6 h-6 text-emerald-400" />
+                      حجم الفريق
                     </h3>
                     <div className="flex flex-wrap gap-3">
                       {teamSizes.map((size, index) => (
@@ -955,12 +946,12 @@ export default function PlayerDiscoveryPage() {
                           transition={{ delay: index * 0.05 }}
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.9 }}
-                          onClick={() =>
-                            setSelectedTeamSize(
-                              size === selectedTeamSize ? null : size,
-                            )
-                          }
-                          className={`w-20 h-20 rounded-2xl font-bold text-lg transition-all ${selectedTeamSize === size ? "bg-gradient-to-br from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/50" : "bg-slate-800/50 text-slate-300 hover:bg-slate-700/50"}`}
+                          onClick={() => setSelectedTeamSize(size === selectedTeamSize ? null : size)}
+                          className={`w-20 h-20 rounded-2xl font-bold text-lg transition-all ${
+                            selectedTeamSize === size
+                              ? 'bg-gradient-to-br from-emerald-600 to-emerald-400 text-cream glow-blue'
+                              : 'btn-ghost'
+                          }`}
                         >
                           {size}
                         </motion.button>
@@ -970,30 +961,14 @@ export default function PlayerDiscoveryPage() {
 
                   {/* Voice */}
                   <div>
-                    <motion.button
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => setVoiceOnly(!voiceOnly)}
-                      className={`w-full p-6 rounded-2xl border-2 transition-all flex items-center justify-center gap-4 ${voiceOnly ? "border-blue-500 bg-gradient-to-r from-blue-500/20 to-cyan-500/20" : "border-slate-700 bg-slate-800/30 hover:border-slate-600"}`}
-                    >
-                      {voiceOnly ? (
-                        <Mic className="w-6 h-6 text-blue-400" />
-                      ) : (
-                        <MicOff className="w-6 h-6 text-slate-400" />
-                      )}
-                      <span className="text-xl font-bold">
-                        مطلوب دردشة صوتية
-                      </span>
+                    <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => setVoiceOnly(!voiceOnly)} className={`w-full p-6 rounded-2xl border transition-all flex items-center justify-center gap-4 ${voiceOnly ? 'border-neon-blue/50 bg-neon-blue/10' : 'border-neon-blue/15 bg-ink-900/40 hover:border-neon-blue/30'}`}>
+                      {voiceOnly ? <Mic className="w-6 h-6 text-blue-400" /> : <MicOff className="w-6 h-6 text-cream-muted" />}
+                      <span className="text-xl font-bold text-cream">مطلوب دردشة صوتية</span>
                     </motion.button>
                   </div>
 
                   <div className="flex justify-end">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={clearFilters}
-                      className="px-8 py-3 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl font-semibold transition-all"
-                    >
+                    <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={clearFilters} className="btn-ghost px-8 py-3 rounded-xl font-semibold">
                       مسح جميع الفلاتر
                     </motion.button>
                   </div>
@@ -1005,8 +980,8 @@ export default function PlayerDiscoveryPage() {
 
         {/* Play Requests */}
         <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-3xl font-bold flex items-center gap-3">
-            <Users className="w-8 h-8 text-cyan-400" />
+          <h2 className="text-3xl font-bold flex items-center gap-3 text-cream">
+            <Users className="w-8 h-8 text-blue-400" />
             اللاعبون المتاحون
           </h2>
           <Badge variant="success" className="text-lg px-6 py-2">
@@ -1017,12 +992,26 @@ export default function PlayerDiscoveryPage() {
 
         {loading ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <div
-                key={i}
-                className="h-64 rounded-2xl bg-slate-800/50 animate-pulse"
-              />
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="surface rounded-xl p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-16 h-16 skeleton-shimmer rounded-2xl" />
+                  <div className="flex-1">
+                    <div className="h-6 w-32 skeleton-shimmer rounded mb-2" />
+                    <div className="h-4 w-20 skeleton-shimmer rounded" />
+                  </div>
+                </div>
+                <div className="h-4 skeleton-shimmer rounded mb-3" />
+                <div className="h-4 w-3/4 skeleton-shimmer rounded mb-6" />
+                <div className="h-12 skeleton-shimmer rounded-xl" />
+              </div>
             ))}
+          </div>
+        ) : playRequests.length === 0 ? (
+          <div className="text-center py-20">
+            <Users className="w-20 h-20 text-cream-muted/30 mx-auto mb-4" />
+            <p className="text-2xl text-cream-muted">لا توجد طلبات لعب نشطة حالياً</p>
+            <p className="text-cream-muted/60 mt-2">كن أول من ينشئ طلباً!</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -1034,12 +1023,8 @@ export default function PlayerDiscoveryPage() {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8, scale: 1.02 }}
               >
-                <GamingCard
-                  hover
-                  glow
-                  className="p-8 relative overflow-hidden group h-full"
-                >
-                  <motion.div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <GamingCard hover glow className="p-8 relative overflow-hidden group h-full">
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 to-neon-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative">
                     <div className="flex items-start justify-between mb-6">
                       <div className="text-right">
@@ -1050,15 +1035,12 @@ export default function PlayerDiscoveryPage() {
                       </div>
                       <div className="flex items-center gap-4">
                         <div>
-                          <h3 className="text-2xl font-bold mb-1 text-right">
+                          <h3 className="text-2xl font-bold mb-1 text-right text-cream">
                             {playRequest.user.name}
                           </h3>
-                          <p className="text-slate-400 text-sm text-right">
-                            {playRequest.title}
-                          </p>
                         </div>
-                        <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center text-3xl">
-                          {playRequest.user.avatar ?? "🎮"}
+                        <div className="w-16 h-16 bg-gradient-to-br from-neon-blue to-neon-red-deep rounded-2xl flex items-center justify-center text-3xl neon-border-blue">
+                          {playRequest.user.avatar ?? '🎮'}
                         </div>
                       </div>
                     </div>
@@ -1070,143 +1052,25 @@ export default function PlayerDiscoveryPage() {
                       </Badge>
                       <Badge variant="success">
                         <Users className="w-3 h-3 ml-1" />
-                        {playRequest.participants.length} /{" "}
-                        {playRequest.playersNeeded}
+                        {playRequest.participants.length} / {playRequest.playersNeeded}
                       </Badge>
                     </div>
 
-                    <p className="text-slate-300 mb-6 leading-relaxed text-right">
+                    <p className="text-cream-muted mb-6 leading-relaxed text-right">
                       {playRequest.description}
                     </p>
 
                     <div className="flex gap-3">
-                      {/* ✅ زر الحذف - يظهر فقط لصاحب الطلب */}
-                      {currentUser?.id === playRequest.user.id && (
-                        <>
-                          <GamingButton
-                            variant="ghost"
-                            onClick={() => setShowDeleteConfirm(playRequest.id)}
-                          >
-                            <Trash2 className="w-4 h-4 text-red-400" />
-                          </GamingButton>
-                          <GamingButton
-                            variant="ghost"
-                            onClick={() =>
-                              router.push(`/play-requests/${playRequest.id}`)
-                            }
-                          >
-                            <Eye className="w-4 h-4 ml-2" />
-                          </GamingButton>
-                        </>
-                      )}
-
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex-1"
-                      >
-                        {currentUser?.id !== playRequest.user.id && (
-                          <motion.div
-                            whileHover={
-                              joiningId !== playRequest.id
-                                ? { scale: 1.05 }
-                                : {}
-                            }
-                            whileTap={
-                              joiningId !== playRequest.id
-                                ? { scale: 0.95 }
-                                : {}
-                            }
-                            animate={
-                              joiningId === playRequest.id
-                                ? { scale: [1, 1.08, 1], rotate: [0, 2, -2, 0] }
-                                : {}
-                            }
-                            transition={{ duration: 0.5 }}
-                          >
-                            {/* ✅ تحقق هل انضم بالفعل */}
-                            {playRequest.participants?.some(
-                              (p: any) => p.userId === currentUser?.id,
-                            ) ? (
-                              // ✅ زر المغادرة
-                              <div className="flex justify-around">
-                                <GamingButton
-                                  variant="ghost"
-                                  className="w-1/2 m-1 text-red-400 hover:text-red-300 border-red-500/30 hover:border-red-500/50"
-                                  onClick={() =>
-                                    handleLeaveRequest(playRequest.id)
-                                  }
-                                  disabled={leavingId === playRequest.id}
-                                >
-                                  {leavingId === playRequest.id ? (
-                                    <>
-                                      <motion.div
-                                        animate={{ rotate: 360 }}
-                                        transition={{
-                                          duration: 1,
-                                          repeat: Infinity,
-                                        }}
-                                        className="inline-block ml-2"
-                                      >
-                                        ⏳
-                                      </motion.div>
-                                      جاري المغادرة...
-                                    </>
-                                  ) : (
-                                    <>
-                                      <LogOut className="w-4 h-4 ml-2" /> غادر
-                                      الطلب
-                                    </>
-                                  )}
-                                </GamingButton>
-                                <GamingButton
-                                  variant="ghost"
-                                  className="w-1/2 m-1 text-cyan-400 hover:text-cyan-300 border-cyan-500/30 hover:border-cyan-500/50"
-                                  onClick={() =>
-                                    router.push(
-                                      `/play-requests/${playRequest.id}`,
-                                    )
-                                  }
-                                >
-                                  <Eye className="w-4 h-4 ml-2" />
-                                  عرض الطلب
-                                </GamingButton>
-                              </div>
-                            ) : (
-                              // ✅ زر الانضمام
-                              <GamingButton
-                                variant="accent"
-                                className="w-full"
-                                glow
-                                onClick={() =>
-                                  handleJoinRequest(playRequest.id)
-                                }
-                                disabled={joiningId === playRequest.id}
-                              >
-                                {joiningId === playRequest.id ? (
-                                  <>
-                                    <motion.div
-                                      animate={{ rotate: 360 }}
-                                      transition={{
-                                        duration: 1,
-                                        repeat: Infinity,
-                                      }}
-                                      className="inline-block ml-2"
-                                    >
-                                      ⏳
-                                    </motion.div>
-                                    جاري الانضمام...
-                                  </>
-                                ) : (
-                                  <>
-                                    <Users className="w-4 h-4 ml-2" /> انضم
-                                    للطلب
-                                  </>
-                                )}
-                              </GamingButton>
-                            )}
-                          </motion.div>
-                        )}
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <GamingButton variant="ghost">
+                          <MessageCircle className="w-4 h-4" />
+                        </GamingButton>
+                      </motion.div>
+                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
+                        <GamingButton variant="primary" className="w-full" glow>
+                          <Users className="w-4 h-4 ml-2" />
+                          انضم للطلب
+                        </GamingButton>
                       </motion.div>
                     </div>
                   </div>
@@ -1216,40 +1080,14 @@ export default function PlayerDiscoveryPage() {
           </div>
         )}
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <GamingButton variant="primary" size="lg">
-            تحميل المزيد من اللاعبين
-          </GamingButton>
-        </motion.div>
+        {playRequests.length > 0 && (
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="mt-12 text-center">
+            <GamingButton variant="primary" size="lg">
+              تحميل المزيد من اللاعبين
+            </GamingButton>
+          </motion.div>
+        )}
       </div>
-
-      {/* FAB */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="fixed bottom-8 left-8 z-50"
-      >
-        <motion.div
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="relative"
-        >
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full blur-xl opacity-50"
-            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <button className="relative w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50 hover:shadow-2xl transition-all">
-            <Star className="w-8 h-8 text-white" />
-          </button>
-        </motion.div>
-      </motion.div>
     </div>
   );
 }
