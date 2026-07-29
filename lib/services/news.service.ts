@@ -1,21 +1,24 @@
-import { NewsRepository } from '@/lib/repositories/news.repository'
-import { NewsDTO } from '@/lib/dto/news.dto'
+import { NewsRepository } from "@/lib/repositories/news.repository";
+import { NewsDTO } from "@/lib/dto/news.dto";
 
 export class NewsService {
-  private repo = new NewsRepository()
+  private repo = new NewsRepository();
 
   async getNews() {
     const [featured, regular] = await Promise.all([
       this.repo.getFeatured(),
       this.repo.getAll(),
-    ])
+    ]);
 
     return {
       featured: featured.map(this.toDTO),
       regular: regular.map(this.toDTO),
-    }
+    };
   }
-
+  async getLatestNews(limit: number = 3) {
+    const news = await this.repo.getAll();
+    return news.slice(0, limit).map(this.toDTO);
+  }
   private toDTO(news: any): NewsDTO {
     return {
       id: news.id,
@@ -33,6 +36,6 @@ export class NewsService {
         avatar: news.author.avatar,
       },
       tags: news.tags,
-    }
+    };
   }
 }

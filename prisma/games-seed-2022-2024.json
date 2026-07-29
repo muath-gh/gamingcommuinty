@@ -1,0 +1,222 @@
+{
+  "platforms": [
+    { "name": "PC", "slug": "pc", "icon": "💻" },
+    { "name": "PlayStation", "slug": "playstation", "icon": "🎮" },
+    { "name": "Xbox", "slug": "xbox", "icon": "🟢" },
+    { "name": "Nintendo Switch", "slug": "nintendo-switch", "icon": "🕹️" },
+    { "name": "Mobile", "slug": "mobile", "icon": "📱" }
+  ],
+
+  "games": [
+    {
+      "name": "Baldur's Gate 3",
+      "slug": "baldurs-gate-3",
+      "description": "لعبة RPG من Larian Studios ثورة في التنوع والحرية. اختيارات غير محدودة تغير القصة بشكل جذري في عالم D&D.",
+      "developer": "Larian Studios",
+      "publisher": "Larian Studios",
+      "releaseDate": "2023-08-03T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Baldur%27s_Gate_3_cover_art.jpg/440px-Baldur%27s_Gate_3_cover_art.jpg",
+      "platforms": ["pc", "playstation"]
+    },
+    {
+      "name": "Alan Wake 2",
+      "slug": "alan-wake-2",
+      "description": "لعبة رعب نفسي من Remedy Entertainment. كاتب يحارب الظلام في مدينة مخيفة مع سينمائية مجنونة.",
+      "developer": "Remedy Entertainment",
+      "publisher": "Epic Games Publishing",
+      "releaseDate": "2023-10-27T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Alan_Wake_2_cover_art.jpg/440px-Alan_Wake_2_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Starfield",
+      "slug": "starfield",
+      "description": "لعبة RPG فضائية من Bethesda. استكشاف الكون اللامحدود مع مئات النجوم والكواكب والحضارات.",
+      "developer": "Bethesda Game Studios",
+      "publisher": "Microsoft Game Studios",
+      "releaseDate": "2023-09-06T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Starfield_cover_art.jpg/440px-Starfield_cover_art.jpg",
+      "platforms": ["pc", "xbox"]
+    },
+    {
+      "name": "Spider-Man 2",
+      "slug": "spider-man-2",
+      "description": "لعبة أكشن من Insomniac Games. بيتر بارك وميلز مورالز يحاربان فينوم وتهديدات أخرى في نيويورك.",
+      "developer": "Insomniac Games",
+      "publisher": "Sony Interactive Entertainment",
+      "releaseDate": "2023-10-20T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Spider-Man_2_box_art.jpg/440px-Spider-Man_2_box_art.jpg",
+      "platforms": ["playstation"]
+    },
+    {
+      "name": "Final Fantasy XVI",
+      "slug": "final-fantasy-16",
+      "description": "لعبة أكشن-RPG من Square Enix. عالم الأرض الأم بحروب وسحر وفصائل متنافسة على القوة.",
+      "developer": "Square Enix",
+      "publisher": "Square Enix",
+      "releaseDate": "2023-06-22T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Final_Fantasy_XVI_cover_art.jpg/440px-Final_Fantasy_XVI_cover_art.jpg",
+      "platforms": ["playstation"]
+    },
+    {
+      "name": "Star Wars Jedi: Survivor",
+      "slug": "jedi-survivor",
+      "description": "لعبة أكشن-مغامرة من Respawn Entertainment. كال كيستيس يستمر في رحلته الهروب من الإمبراطورية.",
+      "developer": "Respawn Entertainment",
+      "publisher": "Electronic Arts",
+      "releaseDate": "2023-04-28T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Jedi_Survivor_cover_art.jpg/440px-Jedi_Survivor_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Diablo IV",
+      "slug": "diablo-4",
+      "description": "لعبة أكشن-RPG من Blizzard. الشرير يعود وعليك مواجهة الظلام في عالم مظلم ومرعب.",
+      "developer": "Blizzard Entertainment",
+      "publisher": "Blizzard Entertainment",
+      "releaseDate": "2023-06-06T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Diablo_IV_cover_art.jpg/440px-Diablo_IV_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Dragon's Dogma 2",
+      "slug": "dragons-dogma-2",
+      "description": "لعبة أكشن-RPG من Capcom. اصطياد التنانين والوحوش الضخمة مع فريقك في عالم مفتوح ديناميكي.",
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "releaseDate": "2024-03-22T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Dragon%27s_Dogma_2_cover_art.jpg/440px-Dragon%27s_Dogma_2_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Black Myth: Wukong",
+      "slug": "black-myth-wukong",
+      "description": "لعبة أكشن من Game Science. ملك القردة الأسطوري في رحلة ملحمية بقتال سريع وحركات دراماتيكية.",
+      "developer": "Game Science",
+      "publisher": "Game Science",
+      "releaseDate": "2024-08-20T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Black_Myth_Wukong_cover_art.jpg/440px-Black_Myth_Wukong_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Indiana Jones and the Great Circle",
+      "slug": "indiana-jones-great-circle",
+      "description": "لعبة أكشن-مغامرة من MachineGames. إنديانا جونز في بحث عن القطع الأثرية المفقودة حول العالم.",
+      "developer": "MachineGames",
+      "publisher": "Microsoft Game Studios",
+      "releaseDate": "2024-12-09T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Indiana_Jones_and_the_Great_Circle_cover.jpg/440px-Indiana_Jones_and_the_Great_Circle_cover.jpg",
+      "platforms": ["pc", "xbox"]
+    },
+    {
+      "name": "Senua's Saga: Hellblade II",
+      "slug": "senuas-saga-hellblade-2",
+      "description": "لعبة أكشن نفسية من Ninja Theory. سينورا تحارب شياطينها الداخلية في عالم جنوني وغامض.",
+      "developer": "Ninja Theory",
+      "publisher": "Xbox Game Studios",
+      "releaseDate": "2024-05-21T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Senuas_Saga_Hellblade_II_cover.jpg/440px-Senuas_Saga_Hellblade_II_cover.jpg",
+      "platforms": ["pc", "xbox"]
+    },
+    {
+      "name": "Final Fantasy VII Rebirth",
+      "slug": "final-fantasy-7-rebirth",
+      "description": "لعبة RPG-أكشن من Square Enix. كلاود وفريقه يكملان رحلتهم ضد شركة Shinra في جزء ثالث من الثلاثية.",
+      "developer": "Square Enix",
+      "publisher": "Sony Interactive Entertainment",
+      "releaseDate": "2024-02-29T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Final_Fantasy_VII_Rebirth_cover_art.jpg/440px-Final_Fantasy_VII_Rebirth_cover_art.jpg",
+      "platforms": ["playstation"]
+    },
+    {
+      "name": "Dragon Age: The Veilguard",
+      "slug": "dragon-age-veilguard",
+      "description": "لعبة RPG من BioWare. الساحر الجديد يقود الفريق ضد إلهة قديمة مستيقظة.",
+      "developer": "BioWare",
+      "publisher": "Electronic Arts",
+      "releaseDate": "2024-10-31T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/d/de/Dragon_Age_The_Veilguard_cover_art.jpg/440px-Dragon_Age_The_Veilguard_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Monster Hunter Wilds",
+      "slug": "monster-hunter-wilds",
+      "description": "لعبة صيد الوحوش من Capcom. صياد جديد في صحراء عميقة مليئة بالوحوش الفتاكة.",
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "releaseDate": "2025-02-28T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Monster_Hunter_Wilds_cover_art.jpg/440px-Monster_Hunter_Wilds_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Metaphor: ReFantazio",
+      "slug": "metaphor-refantazio",
+      "description": "لعبة JRPG من Atlus. طالب وقرد في رحلة انتخابات ملكية سحرية وملحمية.",
+      "developer": "Atlus",
+      "publisher": "Atlus",
+      "releaseDate": "2024-10-11T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Metaphor_ReFantazio_cover_art.jpg/440px-Metaphor_ReFantazio_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+      "slug": "stalker-2",
+      "description": "لعبة FPS-RPG من GSC Game World. العودة إلى منطقة تشيرنوبيل مع عالم مفتوح ديناميكي ومخيف.",
+      "developer": "GSC Game World",
+      "publisher": "GSC Game World",
+      "releaseDate": "2024-11-20T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/S.T.A.L.K.E.R._2_Heart_of_Chornobyl_cover_art.jpg/440px-S.T.A.L.K.E.R._2_Heart_of_Chornobyl_cover_art.jpg",
+      "platforms": ["pc", "xbox"]
+    },
+    {
+      "name": "Grand Theft Auto VI",
+      "slug": "gta-6",
+      "description": "لعبة أكشن-مغامرة من Rockstar Games. جياني وكريستي في فلوريدا مدينة الفوضى والجريمة.",
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "releaseDate": "2025-09-14T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/Grand_Theft_Auto_VI_cover_art.jpg/440px-Grand_Theft_Auto_VI_cover_art.jpg",
+      "platforms": ["playstation", "xbox"]
+    },
+    {
+      "name": "Avowed",
+      "slug": "avowed",
+      "description": "لعبة RPG من Obsidian Entertainment. في عالم ديمنزيون من لعبة Pillars of Eternity.",
+      "developer": "Obsidian Entertainment",
+      "publisher": "Microsoft Game Studios",
+      "releaseDate": "2025-02-18T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Avowed_cover_art.jpg/440px-Avowed_cover_art.jpg",
+      "platforms": ["pc", "xbox"]
+    },
+    {
+      "name": "Doom: The Dark Ages",
+      "slug": "doom-dark-ages",
+      "description": "لعبة FPS من id Software. Doomslayer في الماضي السحيق يحارب الشياطين والسحرة.",
+      "developer": "id Software",
+      "publisher": "Bethesda Softworks",
+      "releaseDate": "2025-05-15T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Doom_The_Dark_Ages_cover_art.jpg/440px-Doom_The_Dark_Ages_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Dragon Quest III HD-2D Remake",
+      "slug": "dragon-quest-3-hd-2d",
+      "description": "لعبة JRPG من Square Enix. إعادة بناء حديثة للعبة الأسطورية بفن 2D-HD جميل.",
+      "developer": "Square Enix",
+      "publisher": "Square Enix",
+      "releaseDate": "2026-01-14T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Dragon_Quest_III_HD-2D_Remake_cover_art.jpg/440px-Dragon_Quest_III_HD-2D_Remake_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"]
+    },
+    {
+      "name": "The Outer Worlds 2",
+      "slug": "outer-worlds-2",
+      "description": "لعبة RPG من Obsidian Entertainment. استعمار الفضاء مع كيبر الخاص بك وشركات شريرة.",
+      "developer": "Obsidian Entertainment",
+      "publisher": "Microsoft Game Studios",
+      "releaseDate": "2025-03-06T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/The_Outer_Worlds_2_cover_art.jpg/440px-The_Outer_Worlds_2_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    }
+  ]
+}

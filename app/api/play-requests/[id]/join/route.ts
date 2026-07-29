@@ -1,14 +1,29 @@
-import { NextResponse } from 'next/server'
-import { PlayRequestParticipantService } from '@/lib/services/play-request-participants.service'
-
-const service = new PlayRequestParticipantService()
-
+import { NextResponse, NextRequest } from "next/server";
+import { PlayRequestParticipantService } from "@/lib/services/play-request-participants.service";
+import { PlayRequestService } from "@/lib/services/play-requests.service";
+const service = new PlayRequestService();
 export async function POST(
-  req: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: { id: string } },
 ) {
-  const { userId } = await req.json()
+  try {
+    const userId = request.headers.get("x-user-id"); // ✅ احصل من الـ header
 
-  const result = await service.join(params.id, userId)
-  return NextResponse.json(result)
+    if (!userId) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const participant = await service.joinRequest(params.id, userId);
+
+    return NextResponse.json({
+      success: true,
+      participant,
+      message: "تم الانضمام بنجاح",
+    });
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: error.message || "فشل الانضمام" },
+      { status: 400 },
+    );
+  }
 }

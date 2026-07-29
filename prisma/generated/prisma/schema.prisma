@@ -36,6 +36,7 @@ model User {
   playRequests PlayRequest[]
 
   playRequestParticipants PlayRequestParticipant[]
+  playRequestMessages     PlayRequestMessage[]
   mediaItems              MediaItem[]
   mediaLikes              MediaLike[]
   mediaComments           MediaComment[]
@@ -316,44 +317,79 @@ model ReviewPlatform {
 }
 
 model PlayRequest {
-  id String @id @default(uuid())
-
+  id          String  @id @default(cuid())
   title       String
-  description String? @db.Text
+  description String?
 
-  playersNeeded Int
-  isOpen        Boolean @default(true)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  userId String
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  // اللعبة والمالك
   gameId String
   game   Game   @relation(fields: [gameId], references: [id], onDelete: Cascade)
 
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // العدد المطلوب
+  playersNeeded Int @default(2)
+
+  // الحالة
+  isOpen Boolean @default(true) // ✅ يغلق لما يصير full
+
+  // الأعضاء اللي انضموا
   participants PlayRequestParticipant[]
 
+  // الرسائل بينهم
+  messages PlayRequestMessage[]
+
+  // الأوقات
+  createdAt DateTime  @default(now())
+  closedAt  DateTime?
+  updatedAt DateTime  @updatedAt
+
   @@index([gameId])
+  @@index([userId])
   @@index([isOpen])
-  @@map("play_requests")
+  @@index([createdAt])
 }
 
 model PlayRequestParticipant {
-  id String @id @default(uuid())
+  id String @id @default(cuid())
 
-  joinedAt DateTime @default(now())
-
-  status PlayRequestStatus @default(pending)
+  playRequestId String
+  playRequest   PlayRequest @relation(fields: [playRequestId], references: [id], onDelete: Cascade)
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  requestId String
-  request   PlayRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  status ParticipantStatus @default(JOINED) // JOINED, READY, PLAYING, LEFT
 
-  @@unique([userId, requestId])
-  @@index([requestId])
-  @@map("play_request_participants")
+  joinedAt DateTime @default(now())
+
+  @@unique([playRequestId, userId])
+  @@index([playRequestId])
+  @@index([userId])
+}
+
+enum ParticipantStatus {
+  JOINED // انضم
+  READY // جاهز
+  PLAYING // اللعبة جارية
+  LEFT // غادر
+}
+
+model PlayRequestMessage {
+  id String @id @default(cuid())
+
+  playRequestId String
+  playRequest   PlayRequest @relation(fields: [playRequestId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  content String
+
+  createdAt DateTime @default(now())
+
+  @@index([playRequestId])
+  @@index([userId])
+  @@index([createdAt])
 }

@@ -9,11 +9,6 @@ import { Badge } from '@/components/gaming/Badge';
 import { GlowText } from '@/components/gaming/GlowText';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
-
 interface Review {
   id: string;
   title: string;
@@ -43,6 +38,10 @@ export default function ReviewsPage() {
   }, []);
 
   const fetchReviews = async () => {
+    const supabase = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
     const { data, error } = await supabase
       .from('game_reviews')
       .select('*')

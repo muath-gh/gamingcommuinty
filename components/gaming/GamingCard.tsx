@@ -1,7 +1,7 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface GamingCardProps {
   children: React.ReactNode;
@@ -11,16 +11,25 @@ interface GamingCardProps {
   className?: string;
 }
 
-export function GamingCard({ children, hover = false, glow = false, gradient = false, className }: GamingCardProps) {
-  const Component = hover ? motion.div : 'div';
+export function GamingCard({
+  children,
+  hover = false,
+  glow = false,
+  gradient = false,
+  className,
+}: GamingCardProps) {
+  const Component = hover ? motion.div : "div";
   return (
     <Component
+      dir="rtl"
       {...(hover ? { whileHover: { y: -5, scale: 1.02 } } : {})}
       className={cn(
-        'rounded-xl border border-slate-800 overflow-hidden transition-all',
-        gradient ? 'bg-gradient-to-br from-slate-900 to-slate-800' : 'bg-slate-900/50',
-        glow && 'shadow-lg shadow-blue-500/10',
-        className
+        "rounded-xl border border-slate-800 overflow-hidden transition-all",
+        gradient
+          ? "bg-gradient-to-br from-slate-900 to-slate-800"
+          : "bg-slate-900/50",
+        glow && "shadow-lg shadow-blue-500/10",
+        className,
       )}
     >
       {children}

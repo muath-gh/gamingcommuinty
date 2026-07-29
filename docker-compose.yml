@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # ── MySQL Database ────────────────────────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: game_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: gaming_community
+      MYSQL_USER: gameuser
+      MYSQL_PASSWORD: gamepassword
+    ports:
+      - '3307:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-prootpassword']
+      interval: 5s
+      timeout: 10s
+      retries: 20
+      start_period: 30s
+
+  # ── phpMyAdmin ────────────────────────────────────────────────────────────
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: game_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+      UPLOAD_LIMIT: 64M
+    ports:
+      - '8080:80'
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  # ── Next.js Application ───────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: game_app
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: 'mysql://root:rootpassword@mysql:3306/gaming_community'
+      db_name: gaming_community
+      db_user: root
+      db_password: rootpassword
+      db_host: mysql
+      JWT_SECRET: '9f8a7b6c5d4e3f2a1b0c9d8e7f6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d0e9f8a7b6c5d4e3f2a1b0'
+      NODE_ENV: production
+      NEXT_APP_URL: 'http://localhost:3000'
+    ports:
+      - '3000:3000'
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - uploads_data:/app/public/uploads
+
+volumes:
+  mysql_data:
+  uploads_data:

@@ -1,0 +1,182 @@
+{
+  "platforms": [
+    { "name": "PC", "slug": "pc", "icon": "💻" },
+    { "name": "PlayStation", "slug": "playstation", "icon": "🎮" },
+    { "name": "Xbox", "slug": "xbox", "icon": "🟢" },
+    { "name": "Nintendo Switch", "slug": "nintendo-switch", "icon": "🕹️" },
+    { "name": "Mobile", "slug": "mobile", "icon": "📱" }
+  ],
+
+  "games": [
+    {
+      "name": "The Witcher 3: Wild Hunt",
+      "slug": "the-witcher-3",
+      "description": "RPG أسطوري من CD Projekt Red. تحفة سردية بعالم مفتوح ضخم وقصص فرعية عميقة تنافس القصة الرئيسية.",
+      "developer": "CD Projekt Red",
+      "publisher": "CD Projekt Red",
+      "releaseDate": "2015-05-19T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Witcher_3_cover_art.jpg/440px-Witcher_3_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"]
+    },
+    {
+      "name": "Fallout 4",
+      "slug": "fallout-4",
+      "description": "لعبة RPG ما بعد نووية من Bethesda. عالم مفتوح مرعب مليء بالوحوش والأسرار في Boston.",
+      "developer": "Bethesda Game Studios",
+      "publisher": "Bethesda Softworks",
+      "releaseDate": "2015-11-10T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Fallout4Logo.jpg/440px-Fallout4Logo.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Uncharted 4: A Thief's End",
+      "slug": "uncharted-4",
+      "description": "لعبة أكشن مغامرة من Naughty Dog. آخر حلقة في سلسلة نيت دريك بجرافيكس وسينمائية لا مثيل لها.",
+      "developer": "Naughty Dog",
+      "publisher": "Sony Interactive Entertainment",
+      "releaseDate": "2016-05-10T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Uncharted_4_cover.jpg/440px-Uncharted_4_cover.jpg",
+      "platforms": ["playstation"]
+    },
+    {
+      "name": "Overwatch",
+      "slug": "overwatch",
+      "description": "لعبة تصويب بطولية من Blizzard. فرق من 6 لاعبين بأبطال متنوعين يتنافسون في معارك مثيرة.",
+      "developer": "Blizzard Entertainment",
+      "publisher": "Blizzard Entertainment",
+      "releaseDate": "2016-05-24T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Overwatch_cover_art.jpg/440px-Overwatch_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"]
+    },
+    {
+      "name": "Dark Souls III",
+      "slug": "dark-souls-3",
+      "description": "لعبة RPG من FromSoftware بقتال عميق وصعب. تحدي حقيقي للاعبين المتمرسين في جو قاتم وشرير.",
+      "developer": "FromSoftware",
+      "publisher": "Bandai Namco",
+      "releaseDate": "2016-04-12T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Dark_Souls_III_Cover_Art.jpg/440px-Dark_Souls_III_Cover_Art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "The Legend of Zelda: Breath of the Wild",
+      "slug": "zelda-breath-of-the-wild",
+      "description": "لعبة أكشن مغامرة من Nintendo. ثورة في تصميم الألعاب بحرية استكشاف مطلقة وعالم مفتوح حقيقي.",
+      "developer": "Nintendo EPD",
+      "publisher": "Nintendo",
+      "releaseDate": "2017-03-03T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg/440px-The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
+      "platforms": ["nintendo-switch"]
+    },
+    {
+      "name": "Persona 5",
+      "slug": "persona-5",
+      "description": "لعبة JRPG من Atlus. أسطورة السلسلة بقصة بطل المدرسة والعالم السري والموسيقى التصويرية الخيالية.",
+      "developer": "Atlus",
+      "publisher": "Atlus",
+      "releaseDate": "2016-09-15T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Persona_5_cover.jpg/440px-Persona_5_cover.jpg",
+      "platforms": ["playstation"]
+    },
+    {
+      "name": "NieR: Automata",
+      "slug": "nier-automata",
+      "description": "لعبة أكشن-RPG فلسفية من Platinum Games. تحفة فنية بقصة عميقة وقتال متنوع في عالم ما بعد البشرية.",
+      "developer": "Platinum Games",
+      "publisher": "Square Enix",
+      "releaseDate": "2017-02-23T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Nier_Automata_cover.jpg/440px-Nier_Automata_cover.jpg",
+      "platforms": ["pc", "playstation"]
+    },
+    {
+      "name": "PlayerUnknown's Battlegrounds",
+      "slug": "playerunknowns-battlegrounds",
+      "description": "لعبة Battle Royale الأصلية. 100 لاعب يتنافسون في خريطة ضخمة - البدء من الصفر والفوز هو الهدف الوحيد.",
+      "developer": "PUBG Corporation",
+      "publisher": "PUBG Corporation",
+      "releaseDate": "2017-03-23T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/PUBG_cover_art.jpg/440px-PUBG_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox", "mobile"]
+    },
+    {
+      "name": "Destiny 2",
+      "slug": "destiny-2",
+      "description": "لعبة FPS-RPG من Bungie. عالم خيالي مع قصة حماية الضوء ومغامرات متعددة اللاعبين.",
+      "developer": "Bungie",
+      "publisher": "Activision",
+      "releaseDate": "2017-09-06T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Destiny_2_cover.jpg/440px-Destiny_2_cover.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Super Mario Odyssey",
+      "slug": "super-mario-odyssey",
+      "description": "لعبة منصات ثورية من Nintendo. ماريو مع قبعة سحرية تسمح له بـ 'امتلاك' الأعداء والأشياء.",
+      "developer": "Nintendo EPD",
+      "publisher": "Nintendo",
+      "releaseDate": "2017-10-27T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1d/Super_Mario_Odyssey.jpg/440px-Super_Mario_Odyssey.jpg",
+      "platforms": ["nintendo-switch"]
+    },
+    {
+      "name": "Mario Kart 8 Deluxe",
+      "slug": "mario-kart-8-deluxe",
+      "description": "لعبة سباق كارتينج الأسطورية. ماريو وأصدقاؤه في منافسات سريعة مليئة بالفوضى والمتعة.",
+      "developer": "Nintendo EPD",
+      "publisher": "Nintendo",
+      "releaseDate": "2017-04-28T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Mario_Kart_8_Deluxe.jpg/440px-Mario_Kart_8_Deluxe.jpg",
+      "platforms": ["nintendo-switch"]
+    },
+    {
+      "name": "Red Dead Redemption 2",
+      "slug": "red-dead-redemption-2",
+      "description": "لعبة أكشن-مغامرة حقبة الويسترن من Rockstar. عالم مفتوح يعيد الحياة لعصر الخيول والقروى والعصابات.",
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "releaseDate": "2018-10-26T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Red_Dead_Redemption_II.jpg/440px-Red_Dead_Redemption_II.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "God of War",
+      "slug": "god-of-war-2018",
+      "description": "لعبة أكشن-مغامرة من Sony Santa Monica. كراتوس في رحلة ملحمية مع ابنه في عالم الأساطير الإسكندنافية.",
+      "developer": "Santa Monica Studio",
+      "publisher": "Sony Interactive Entertainment",
+      "releaseDate": "2018-04-20T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/God_of_War_2018_game_cover.jpg/440px-God_of_War_2018_game_cover.jpg",
+      "platforms": ["playstation"]
+    },
+    {
+      "name": "Monster Hunter: World",
+      "slug": "monster-hunter-world",
+      "description": "لعبة صيد الوحوش من Capcom. تصيد وحوشاً عملاقة وحرفية في بيئات ضخمة مع زملاء.",
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "releaseDate": "2018-01-26T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Monster_Hunter_World_cover_art.jpg/440px-Monster_Hunter_World_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Battlefield 1",
+      "slug": "battlefield-1",
+      "description": "لعبة FPS حرب عالمية أولى من DICE. معارك ضخمة بتدمير بيئات والتزامات عسكرية واقعية.",
+      "developer": "DICE",
+      "publisher": "Electronic Arts",
+      "releaseDate": "2016-10-21T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Battlefield_1_cover_art.jpg/440px-Battlefield_1_cover_art.jpg",
+      "platforms": ["pc", "playstation", "xbox"]
+    },
+    {
+      "name": "Fortnite",
+      "slug": "fortnite-2018",
+      "description": "لعبة Battle Royale الثورية من Epic Games. 100 لاعب يتنافسون مع نظام البناء الفريد والموسيقى التصويرية الإدمانية.",
+      "developer": "Epic Games",
+      "publisher": "Epic Games",
+      "releaseDate": "2018-07-21T00:00:00.000Z",
+      "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Fortnite_logo.svg/440px-Fortnite_logo.svg.png",
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch", "mobile"]
+    }
+  ]
+}

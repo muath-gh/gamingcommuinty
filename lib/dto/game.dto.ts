@@ -3,3 +3,7 @@ export interface GameDTO {
   name: string
   slug: string
 }
+
+export type PopularGameDTO = GameDTO & {
+  playRequestsCount: number
+}

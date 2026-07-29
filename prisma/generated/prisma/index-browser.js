@@ -272,20 +272,29 @@ exports.Prisma.PlayRequestScalarFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
+  gameId: 'gameId',
+  userId: 'userId',
   playersNeeded: 'playersNeeded',
   isOpen: 'isOpen',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt',
-  userId: 'userId',
-  gameId: 'gameId'
+  closedAt: 'closedAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.PlayRequestParticipantScalarFieldEnum = {
   id: 'id',
-  joinedAt: 'joinedAt',
-  status: 'status',
+  playRequestId: 'playRequestId',
   userId: 'userId',
-  requestId: 'requestId'
+  status: 'status',
+  joinedAt: 'joinedAt'
+};
+
+exports.Prisma.PlayRequestMessageScalarFieldEnum = {
+  id: 'id',
+  playRequestId: 'playRequestId',
+  userId: 'userId',
+  content: 'content',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -420,24 +429,32 @@ exports.Prisma.PlayRequestOrderByRelevanceFieldEnum = {
   id: 'id',
   title: 'title',
   description: 'description',
-  userId: 'userId',
-  gameId: 'gameId'
+  gameId: 'gameId',
+  userId: 'userId'
 };
 
 exports.Prisma.PlayRequestParticipantOrderByRelevanceFieldEnum = {
   id: 'id',
+  playRequestId: 'playRequestId',
+  userId: 'userId'
+};
+
+exports.Prisma.PlayRequestMessageOrderByRelevanceFieldEnum = {
+  id: 'id',
+  playRequestId: 'playRequestId',
   userId: 'userId',
-  requestId: 'requestId'
+  content: 'content'
 };
 exports.MediaType = exports.$Enums.MediaType = {
   image: 'image',
   video: 'video'
 };
 
-exports.PlayRequestStatus = exports.$Enums.PlayRequestStatus = {
-  pending: 'pending',
-  accepted: 'accepted',
-  rejected: 'rejected'
+exports.ParticipantStatus = exports.$Enums.ParticipantStatus = {
+  JOINED: 'JOINED',
+  READY: 'READY',
+  PLAYING: 'PLAYING',
+  LEFT: 'LEFT'
 };
 
 exports.Prisma.ModelName = {
@@ -458,7 +475,8 @@ exports.Prisma.ModelName = {
   ReviewGenre: 'ReviewGenre',
   ReviewPlatform: 'ReviewPlatform',
   PlayRequest: 'PlayRequest',
-  PlayRequestParticipant: 'PlayRequestParticipant'
+  PlayRequestParticipant: 'PlayRequestParticipant',
+  PlayRequestMessage: 'PlayRequestMessage'
 };
 
 /**

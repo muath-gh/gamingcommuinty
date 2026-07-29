@@ -1,183 +1,253 @@
-import { PrismaClient } from './generated/prisma/client'
-import { PrismaMariaDb } from '@prisma/adapter-mariadb'
-import slugify from 'slugify'
+import { PrismaClient } from "./generated/prisma/client";
+import { PrismaMariaDb } from "@prisma/adapter-mariadb";
+import seedData_2015_2018 from "./games-seed-2015-2018.json";
+import seedData_2019_2022 from "./games-seed-2019-2022.json";
+import seedData_2022_2026 from "./games-seed-2022-2024.json";
 
 /* ================= DB ADAPTER ================= */
 const adapter = new PrismaMariaDb({
-  host: 'localhost',
+  host: process.env.db_host || "127.0.0.1",
   port: 3306,
+  database: process.env.db_name || "gaming_community",
+  user: process.env.db_user || "root",
+  password: process.env.db_password || "",
   connectionLimit: 5,
-  database: 'gaming_hub',
-  user: 'root',
-  password: '',
-})
+});
 
-const prisma = new PrismaClient({ adapter })
+const prisma = new PrismaClient({ adapter });
+
+/* ================= INTERFACES ================= */
+interface PlatformData {
+  name: string;
+  slug: string;
+  icon: string;
+}
+
+interface GameData {
+  name: string;
+  slug: string;
+  description: string;
+  developer: string;
+  publisher: string;
+  releaseDate: string;
+  coverImage: string;
+  platforms: string[];
+}
+
+interface SeedData {
+  platforms: PlatformData[];
+  games: GameData[];
+}
+
+/* ================= MERGE SEED DATA ================= */
+function mergeSeedData(
+  seed1: SeedData,
+  seed2: SeedData,
+  seed3: SeedData,
+): SeedData {
+  // دمج المنصات وحذف التكرار
+  const platformMap = new Map<string, PlatformData>();
+
+  for (const data of [seed1, seed2, seed3]) {
+    for (const platform of data.platforms) {
+      platformMap.set(platform.slug, platform);
+    }
+  }
+
+  // دمج الالعاب
+  const games: GameData[] = [...seed1.games, ...seed2.games, ...seed3.games];
+
+  return {
+    platforms: Array.from(platformMap.values()),
+    games,
+  };
+}
 
 /* ================= MAIN ================= */
 async function main() {
-  console.log('🌱 Seeding database...')
+  try {
+    console.log("\n🌱 Starting database seeding...\n");
 
-  /* ================= USERS ================= */
-  const admin = await prisma.user.upsert({
-    where: { email: 'admin@gaming.hub' },
-    update: {},
-    create: {
-      username: 'admin',
-      email: 'admin@gaming.hub',
-      password: 'hashed_password_here',
-      name: 'Admin User',
-      avatar: null,
-    },
-  })
+    /* ================= MERGE ALL DATA ================= */
+    console.log("📋 Merging seed data from all sources...");
+    const seedData = mergeSeedData(
+      seedData_2015_2018,
+      seedData_2019_2022,
+      seedData_2022_2026,
+    );
+    console.log(`   ✅ Merged data ready`);
+    console.log(`   📦 Total platforms: ${seedData.platforms.length}`);
+    console.log(`   🎮 Total games: ${seedData.games.length}\n`);
+    await prisma.$executeRawUnsafe("SET FOREIGN_KEY_CHECKS=0");
+    /* ================= CLEANUP ================= */
+    console.log("🗑️  Cleaning old data...");
+    await prisma.playRequestParticipant.deleteMany({});
+    await prisma.playRequest.deleteMany({});
+    await prisma.newsTag.deleteMany({});
+    await prisma.news.deleteMany({});
+    await prisma.reviewPlatform.deleteMany({});
+    await prisma.reviewGenre.deleteMany({});
+    await prisma.review.deleteMany({});
+    await prisma.mediaComment.deleteMany({});
+    await prisma.mediaLike.deleteMany({});
+    await prisma.mediaTag.deleteMany({});
+    await prisma.mediaItem.deleteMany({});
+    await prisma.gamePlatform.deleteMany({});
+    await prisma.game.deleteMany({});
+    await prisma.platform.deleteMany({});
+    await prisma.$executeRawUnsafe("SET FOREIGN_KEY_CHECKS=1");
 
-  /* ================= PLATFORMS ================= */
-  const pc = await prisma.platform.upsert({
-    where: { slug: 'pc' },
-    update: {},
-    create: { name: 'PC', slug: 'pc' },
-  })
+    /* ================= SEED PLATFORMS ================= */
+    console.log("📦 Seeding platforms...");
+    const platformMap: Record<string, string> = {};
+    let platformCount = 0;
 
-  const playstation = await prisma.platform.upsert({
-    where: { slug: 'playstation' },
-    update: {},
-    create: { name: 'PlayStation', slug: 'playstation' },
-  })
+    for (const platform of seedData.platforms) {
+      try {
+        const created = await prisma.platform.upsert({
+          where: { slug: platform.slug },
+          update: {
+            name: platform.name,
+            icon: platform.icon,
+          },
+          create: {
+            name: platform.name,
+            slug: platform.slug,
+            icon: platform.icon,
+          },
+        });
+        platformMap[platform.slug] = created.id;
+        platformCount++;
+        console.log(`   ✅ ${platform.icon} ${platform.name}`);
+      } catch (error) {
+        console.error(`   ❌ Failed to seed platform ${platform.name}:`, error);
+      }
+    }
+    console.log(
+      `   Summary: ${platformCount}/${seedData.platforms.length} platforms seeded\n`,
+    );
 
-  const xbox = await prisma.platform.upsert({
-    where: { slug: 'xbox' },
-    update: {},
-    create: { name: 'Xbox', slug: 'xbox' },
-  })
+    /* ================= SEED GAMES ================= */
+    console.log("🎮 Seeding games...");
+    let gameCount = 0;
+    let relationCount = 0;
 
-  /* ================= GAMES (10) ================= */
-  const gamesData = [
-    { name: 'Minecraft', developer: 'Mojang', publisher: 'Mojang' },
-    { name: 'Fortnite', developer: 'Epic Games', publisher: 'Epic Games' },
-    { name: 'League of Legends', developer: 'Riot Games', publisher: 'Riot Games' },
-    { name: 'GTA V', developer: 'Rockstar North', publisher: 'Rockstar Games' },
-    { name: 'Cyberpunk 2077', developer: 'CD Projekt Red', publisher: 'CD Projekt' },
-    { name: 'The Witcher 3', developer: 'CD Projekt Red', publisher: 'CD Projekt' },
-    { name: 'Red Dead Redemption 2', developer: 'Rockstar Games', publisher: 'Rockstar Games' },
-    { name: 'Valorant', developer: 'Riot Games', publisher: 'Riot Games' },
-    { name: 'Call of Duty: Modern Warfare', developer: 'Infinity Ward', publisher: 'Activision' },
-    { name: 'Elden Ring', developer: 'FromSoftware', publisher: 'Bandai Namco' },
-  ]
+    for (const game of seedData.games) {
+      try {
+        // Create/Update game
+        const createdGame = await prisma.game.upsert({
+          where: { slug: game.slug },
+          update: {
+            name: game.name,
+            description: game.description,
+            developer: game.developer,
+            publisher: game.publisher,
+            coverImage: game.coverImage,
+            releaseDate: new Date(game.releaseDate),
+          },
+          create: {
+            name: game.name,
+            slug: game.slug,
+            description: game.description,
+            developer: game.developer,
+            publisher: game.publisher,
+            coverImage: game.coverImage,
+            releaseDate: new Date(game.releaseDate),
+          },
+        });
 
-  const games = []
+        // Link platforms
+        let platformLinked = 0;
+        for (const platformSlug of game.platforms) {
+          const platformId = platformMap[platformSlug];
+          if (!platformId) {
+            console.warn(
+              `   ⚠️  Platform '${platformSlug}' not found for game '${game.name}'`,
+            );
+            continue;
+          }
 
-  for (const game of gamesData) {
-    const slug = slugify(game.name, { lower: true, strict: true })
+          try {
+            await prisma.gamePlatform.upsert({
+              where: {
+                gameId_platformId: {
+                  gameId: createdGame.id,
+                  platformId,
+                },
+              },
+              update: {},
+              create: {
+                gameId: createdGame.id,
+                platformId,
+              },
+            });
+            platformLinked++;
+            relationCount++;
+          } catch (error) {
+            console.error(
+              `   ❌ Failed to link platform ${platformSlug} to ${game.name}:`,
+              error,
+            );
+          }
+        }
 
-    const createdGame = await prisma.game.upsert({
-      where: { slug },
-      update: {},
-      create: {
-        name: game.name,
-        slug,
-        description: `${game.name} game`,
-        developer: game.developer,
-        publisher: game.publisher,
-      },
-    })
+        gameCount++;
+        console.log(
+          `   ✅ ${game.name} (${platformLinked} platforms) [${game.developer}]`,
+        );
+      } catch (error) {
+        console.error(`   ❌ Failed to seed game ${game.name}:`, error);
+      }
+    }
+    console.log(
+      `   Summary: ${gameCount}/${seedData.games.length} games seeded`,
+    );
+    console.log(
+      `   Summary: ${relationCount} game-platform relations created\n`,
+    );
 
-    games.push(createdGame)
+    /* ================= SEED ADMIN USER ================= */
+    console.log("👤 Seeding admin user...");
+    try {
+      const admin = await prisma.user.upsert({
+        where: { email: "admin@gaming.hub" },
+        update: {},
+        create: {
+          username: "admin",
+          email: "admin@gaming.hub",
+          password: "hashed_password_here", // Should be hashed in production
+          name: "Admin User",
+          avatar: null,
+        },
+      });
+      console.log(`   ✅ Admin user ready (ID: ${admin.id})\n`);
+    } catch (error) {
+      console.error("   ❌ Failed to seed admin user:", error);
+    }
 
-    await prisma.gamePlatform.createMany({
-      data: [
-        { gameId: createdGame.id, platformId: pc.id },
-        { gameId: createdGame.id, platformId: playstation.id },
-        { gameId: createdGame.id, platformId: xbox.id },
-      ],
-      skipDuplicates: true,
-    })
+    /* ================= FINAL SUMMARY ================= */
+    console.log("═══════════════════════════════════════════════════");
+    console.log("✅ Database seeding completed successfully!");
+    console.log("═══════════════════════════════════════════════════");
+    console.log(`📊 Statistics:`);
+    console.log(`   • Platforms: ${platformCount}`);
+    console.log(`   • Games: ${gameCount}`);
+    console.log(`   • Relations: ${relationCount}`);
+    console.log(`   • Date: ${new Date().toLocaleString()}`);
+    console.log("═══════════════════════════════════════════════════\n");
+  } catch (error) {
+    console.error("\n❌ Critical error during seeding:", error);
+    process.exit(1);
   }
-
-  /* ================= TAGS ================= */
-  const tagBreaking = await prisma.tag.upsert({
-    where: { slug: 'breaking' },
-    update: {},
-    create: { name: 'Breaking', slug: 'breaking' },
-  })
-
-  const tagUpdate = await prisma.tag.upsert({
-    where: { slug: 'update' },
-    update: {},
-    create: { name: 'Update', slug: 'update' },
-  })
-
-  /* ================= GENRE ================= */
-  const genreAction = await prisma.genre.upsert({
-    where: { slug: 'action' },
-    update: {},
-    create: { name: 'Action', slug: 'action' },
-  })
-
-  /* ================= NEWS ================= */
-  const news = await prisma.news.upsert({
-    where: { slug: 'gaming-hub-launch' },
-    update: {},
-    create: {
-      title: 'إطلاق Gaming Hub رسميًا',
-      slug: 'gaming-hub-launch',
-      excerpt: 'تم إطلاق منصة Gaming Hub لتجميع أخبار وميديا الألعاب.',
-      contentPath: '/content/news/launch.md',
-      contentType: 'markdown',
-      category: 'أخبار',
-      isFeatured: true,
-      published: true,
-      authorId: admin.id,
-      gameId: games[0].id,
-    },
-  })
-
-  await prisma.newsTag.createMany({
-    data: [
-      { newsId: news.id, tagId: tagBreaking.id },
-      { newsId: news.id, tagId: tagUpdate.id },
-    ],
-    skipDuplicates: true,
-  })
-
-  /* ================= REVIEW ================= */
-  const review = await prisma.review.upsert({
-    where: { slug: 'minecraft-review' },
-    update: {},
-    create: {
-      title: 'Minecraft Review',
-      slug: 'minecraft-review',
-      excerpt: 'لعبة لا حدود للإبداع فيها.',
-      contentPath: '/content/reviews/minecraft.md',
-      contentType: 'markdown',
-      rating: 9.5,
-      published: true,
-      authorId: admin.id,
-      gameId: games[0].id,
-    },
-  })
-
-  await prisma.reviewGenre.createMany({
-    data: [{ reviewId: review.id, genreId: genreAction.id }],
-    skipDuplicates: true,
-  })
-
-  await prisma.reviewPlatform.createMany({
-    data: [
-      { reviewId: review.id, platformId: pc.id },
-      { reviewId: review.id, platformId: playstation.id },
-    ],
-    skipDuplicates: true,
-  })
-
-  console.log('✅ Database seeded successfully')
 }
 
 /* ================= RUN ================= */
 main()
   .catch((e) => {
-    console.error(e)
-    process.exit(1)
+    console.error("\n❌ Unexpected error:", e);
+    process.exit(1);
   })
   .finally(async () => {
-    await prisma.$disconnect()
-  })
+    await prisma.$disconnect();
+    console.log("🔌 Database connection closed\n");
+  });
