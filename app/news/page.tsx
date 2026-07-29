@@ -19,8 +19,6 @@ import { GamingCard } from '@/components/gaming/GamingCard'
 import { Badge } from '@/components/gaming/Badge'
 import { GlowText } from '@/components/gaming/GlowText'
 
-/* ================= TYPES ================= */
-
 interface News {
   id: string
   title: string
@@ -38,8 +36,6 @@ interface News {
     avatar?: string | null
   }
 }
-
-/* ================= PAGE ================= */
 
 export default function NewsPage() {
   const [news, setNews] = useState<News[]>([])
@@ -89,10 +85,11 @@ export default function NewsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      {/* ================= HERO ================= */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900 py-20 px-6">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg')] opacity-5 bg-cover bg-center" />
+    <div className="min-h-screen ambient-bg text-cream">
+      <div className="relative overflow-hidden py-20 px-6">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-neon-red/8 rounded-full blur-3xl animate-pulse-glow" />
 
         <div className="relative max-w-7xl mx-auto">
           <motion.div
@@ -106,16 +103,15 @@ export default function NewsPage() {
               {news.length} خبر جديد
             </Badge>
 
-            <h1 className="text-6xl md:text-7xl font-black mb-4">
+            <h1 className="text-6xl md:text-7xl font-black mb-4 text-cream">
               <GlowText color="blue">أخبار</GlowText> الألعاب
             </h1>
 
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-cream-muted max-w-3xl mx-auto">
               آخر المستجدات والأخبار الحصرية من عالم الألعاب
             </p>
           </motion.div>
 
-          {/* SEARCH */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,20 +119,20 @@ export default function NewsPage() {
             className="max-w-4xl mx-auto"
           >
             <div className="relative">
-              <Search className="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-slate-400" />
+              <Search className="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-cream-muted" />
               <input
                 type="text"
                 placeholder="ابحث عن خبر..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-900/50 backdrop-blur-xl border-2 border-slate-700 rounded-2xl pr-16 pl-6 py-5 text-lg focus:outline-none focus:border-blue-500 transition-all text-right"
+                className="w-full input-gaming rounded-2xl pr-16 pl-6 py-5 text-lg text-right"
               />
               {searchQuery && (
                 <motion.button
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   onClick={() => setSearchQuery('')}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                  className="absolute left-6 top-1/2 -translate-y-1/2 text-cream-muted hover:text-cream transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </motion.button>
@@ -146,22 +142,18 @@ export default function NewsPage() {
         </div>
       </div>
 
-      {/* ================= CONTENT ================= */}
       <div className="max-w-7xl mx-auto px-6 py-12">
-        {/* CATEGORIES */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <Newspaper className="w-6 h-6 text-blue-400" />
-            <h2 className="text-2xl font-bold">الفئات</h2>
+            <h2 className="text-2xl font-bold text-cream">الفئات</h2>
           </div>
 
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => setSelectedCategory(null)}
-              className={`px-6 py-3 rounded-xl font-semibold ${
-                !selectedCategory
-                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500'
-                  : 'bg-slate-800/50'
+              className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+                !selectedCategory ? 'btn-primary glow-blue' : 'btn-ghost'
               }`}
             >
               الكل
@@ -171,10 +163,8 @@ export default function NewsPage() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-xl font-semibold ${
-                  selectedCategory === category
-                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500'
-                    : 'bg-slate-800/50'
+                className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+                  selectedCategory === category ? 'btn-primary glow-blue' : 'btn-ghost'
                 }`}
               >
                 {category}
@@ -183,45 +173,105 @@ export default function NewsPage() {
           </div>
         </div>
 
-        {/* FEATURED */}
-        {!loading && featuredNews.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-              <TrendingUp className="w-8 h-8 text-orange-400" />
-              أخبار مميزة
-            </h2>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {featuredNews.map((item) => (
-                <Link key={item.id} href={`/news/${item.slug}`}>
-                  <GamingCard hover glow className="h-full cursor-pointer">
-                    <div className="p-6">
-                      <Badge variant="warning">{item.category}</Badge>
-                      <h3 className="text-2xl font-bold mt-4 text-right">
-                        {item.title}
-                      </h3>
-                      <p className="text-slate-300 mt-2 text-right">
-                        {item.excerpt}
-                      </p>
-                      <div className="flex justify-between mt-4 text-sm text-slate-400">
-                        <span>{getTimeAgo(item.createdAt)}</span>
-                        <span className="flex gap-4">
-                          <span className="flex items-center gap-1">
-                            <Heart className="w-4 h-4" />
-                            {item.likesCount}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Eye className="w-4 h-4" />
-                            {item.viewsCount}
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </GamingCard>
-                </Link>
-              ))}
-            </div>
+        {loading ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="surface rounded-xl p-6">
+                <div className="h-6 w-24 skeleton-shimmer rounded mb-4" />
+                <div className="h-8 w-3/4 skeleton-shimmer rounded mb-3" />
+                <div className="h-4 w-full skeleton-shimmer rounded mb-2" />
+                <div className="h-4 w-1/2 skeleton-shimmer rounded" />
+              </div>
+            ))}
           </div>
+        ) : (
+          <>
+            {featuredNews.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 text-cream">
+                  <TrendingUp className="w-8 h-8 text-amber-400" />
+                  أخبار مميزة
+                </h2>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {featuredNews.map((item) => (
+                    <Link key={item.id} href={`/news/${item.slug}`}>
+                      <GamingCard hover glow className="h-full cursor-pointer">
+                        <div className="p-6">
+                          <Badge variant="warning">{item.category}</Badge>
+                          <h3 className="text-2xl font-bold mt-4 text-right text-cream group-hover:text-blue-400 transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-cream-muted mt-2 text-right">
+                            {item.excerpt}
+                          </p>
+                          <div className="flex justify-between mt-4 text-sm text-cream-muted">
+                            <span>{getTimeAgo(item.createdAt)}</span>
+                            <span className="flex gap-4">
+                              <span className="flex items-center gap-1">
+                                <Heart className="w-4 h-4" />
+                                {item.likesCount}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Eye className="w-4 h-4" />
+                                {item.viewsCount}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </GamingCard>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {filteredNews.length > 0 && (
+              <div>
+                <h2 className="text-3xl font-bold mb-6 flex items-center gap-3 text-cream">
+                  <Clock className="w-8 h-8 text-blue-400" />
+                  آخر الأخبار
+                </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {filteredNews.map((item) => (
+                    <Link key={item.id} href={`/news/${item.slug}`}>
+                      <GamingCard hover className="h-full cursor-pointer">
+                        <div className="p-6">
+                          <Badge variant="info">{item.category}</Badge>
+                          <h3 className="text-xl font-bold mt-4 text-right text-cream group-hover:text-blue-400 transition-colors">
+                            {item.title}
+                          </h3>
+                          <p className="text-cream-muted mt-2 text-right text-sm">
+                            {item.excerpt}
+                          </p>
+                          <div className="flex justify-between mt-4 text-sm text-cream-muted border-t border-neon-blue/10 pt-4">
+                            <span>{getTimeAgo(item.createdAt)}</span>
+                            <span className="flex gap-4">
+                              <span className="flex items-center gap-1">
+                                <Heart className="w-4 h-4" />
+                                {item.likesCount}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Eye className="w-4 h-4" />
+                                {item.viewsCount}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </GamingCard>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {filteredNews.length === 0 && featuredNews.length === 0 && (
+              <div className="text-center py-20">
+                <Newspaper className="w-20 h-20 text-cream-muted/30 mx-auto mb-4" />
+                <p className="text-2xl text-cream-muted">لم يتم العثور على أخبار</p>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

@@ -81,10 +81,10 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="min-h-screen ambient-bg flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 mx-auto mb-4" />
-          <p className="text-slate-400">جاري التحميل...</p>
+          <div className="w-16 h-16 border-2 border-neon-blue border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-cream-muted">جاري التحميل...</p>
         </div>
       </div>
     );
@@ -92,9 +92,10 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
 
   if (!news) {
     return (
-      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+      <div className="min-h-screen ambient-bg flex items-center justify-center">
         <div className="text-center">
-          <p className="text-2xl text-slate-400 mb-4">الخبر غير موجود</p>
+          <Newspaper className="w-20 h-20 text-cream-muted/30 mx-auto mb-4" />
+          <p className="text-2xl text-cream-muted mb-4">الخبر غير موجود</p>
           <Link href="/news">
             <GamingButton variant="primary">العودة إلى الأخبار</GamingButton>
           </Link>
@@ -104,14 +105,14 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="min-h-screen ambient-bg text-cream">
       <div className="relative h-[70vh] overflow-hidden">
         <img
           src={news.cover_image}
           alt={news.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/80 to-transparent" />
 
         <div className="absolute inset-0 flex items-end">
           <div className="max-w-7xl mx-auto px-6 pb-12 w-full">
@@ -120,12 +121,12 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center gap-2 mb-4 text-slate-400">
-                <Link href="/" className="hover:text-white transition-colors">الرئيسية</Link>
+              <div className="flex items-center gap-2 mb-4 text-cream-muted">
+                <Link href="/" className="hover:text-cream transition-colors">الرئيسية</Link>
                 <ChevronRight className="w-4 h-4" />
-                <Link href="/news" className="hover:text-white transition-colors">الأخبار</Link>
+                <Link href="/news" className="hover:text-cream transition-colors">الأخبار</Link>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-white">{news.category}</span>
+                <span className="text-cream">{news.category}</span>
               </div>
 
               <div className="flex items-center gap-3 mb-4">
@@ -139,26 +140,26 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
                 )}
               </div>
 
-              <h1 className="text-5xl md:text-7xl font-black mb-4 text-right">
+              <h1 className="text-5xl md:text-7xl font-black mb-4 text-right text-cream">
                 {news.title}
               </h1>
 
-              <p className="text-xl text-slate-300 mb-6 max-w-3xl text-right">
+              <p className="text-xl text-cream-muted mb-6 max-w-3xl text-right">
                 {news.excerpt}
               </p>
 
               <div className="flex items-center gap-6 flex-wrap">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                    <User className="w-6 h-6" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-neon-blue to-neon-red-deep rounded-full flex items-center justify-center neon-border-blue">
+                    <User className="w-6 h-6 text-cream" />
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold">{news.author_name}</p>
-                    <p className="text-sm text-slate-400">المحرر</p>
+                    <p className="font-semibold text-cream">{news.author_name}</p>
+                    <p className="text-sm text-cream-muted">المحرر</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-slate-400">
+                <div className="flex items-center gap-2 text-cream-muted">
                   <Calendar className="w-5 h-5" />
                   <span>{new Date(news.created_at).toLocaleDateString('ar-SA', {
                     year: 'numeric',
@@ -167,7 +168,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
                   })}</span>
                 </div>
 
-                <div className="flex items-center gap-2 text-slate-400">
+                <div className="flex items-center gap-2 text-cream-muted">
                   <Eye className="w-5 h-5" />
                   <span>{news.views_count} مشاهدة</span>
                 </div>
@@ -186,10 +187,8 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
               transition={{ delay: 0.2 }}
             >
               <GamingCard className="p-8 mb-8">
-                <div className="prose prose-invert prose-lg max-w-none">
-                  <div className="text-lg leading-relaxed text-slate-300 whitespace-pre-wrap text-right">
-                    {news.content}
-                  </div>
+                <div className="text-lg leading-relaxed text-cream-muted whitespace-pre-wrap text-right">
+                  {news.content}
                 </div>
               </GamingCard>
 
@@ -197,7 +196,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
                 <GamingCard className="p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <Tag className="w-5 h-5 text-blue-400" />
-                    <h3 className="text-xl font-bold">الوسوم</h3>
+                    <h3 className="text-xl font-bold text-cream">الوسوم</h3>
                   </div>
                   <div className="flex flex-wrap gap-2 justify-end">
                     {news.tags.map((tag) => (
@@ -219,7 +218,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
             >
               <GamingCard className="p-6">
                 <div className="text-center space-y-4">
-                  <p className="text-sm text-slate-400 mb-4">هل أعجبك الخبر؟</p>
+                  <p className="text-sm text-cream-muted mb-4">هل أعجبك الخبر؟</p>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -257,7 +256,7 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
                 transition={{ delay: 0.4 }}
               >
                 <GamingCard className="p-6">
-                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                  <h3 className="text-xl font-bold mb-4 flex items-center gap-2 text-cream">
                     <Newspaper className="w-5 h-5 text-blue-400" />
                     أخبار ذات صلة
                   </h3>
@@ -277,12 +276,12 @@ export default function NewsDetailPage({ params }: { params: { slug: string } })
                                 alt={item.title}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
+                              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 to-transparent" />
                             </div>
-                            <h4 className="font-bold line-clamp-2 group-hover:text-blue-400 transition-colors text-right">
+                            <h4 className="font-bold line-clamp-2 group-hover:text-blue-400 transition-colors text-right text-cream">
                               {item.title}
                             </h4>
-                            <p className="text-xs text-slate-500 mt-1 text-right">
+                            <p className="text-xs text-cream-muted mt-1 text-right">
                               {new Date(item.created_at).toLocaleDateString('ar-SA')}
                             </p>
                           </div>

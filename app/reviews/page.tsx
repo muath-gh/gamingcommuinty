@@ -63,9 +63,11 @@ export default function ReviewsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900 py-20 px-6">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress')] opacity-5 bg-cover bg-center" />
+    <div className="min-h-screen ambient-bg text-cream">
+      <div className="relative overflow-hidden py-20 px-6">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="absolute top-0 left-0 w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-neon-red/8 rounded-full blur-3xl animate-pulse-glow" />
 
         <div className="relative max-w-7xl mx-auto">
           <motion.div
@@ -78,10 +80,10 @@ export default function ReviewsPage() {
               <Star className="w-4 h-4 ml-2" />
               {reviews.length} مراجعة شاملة
             </Badge>
-            <h1 className="text-6xl md:text-7xl font-black mb-4">
-              <GlowText color="purple">مراجعات</GlowText> الألعاب
+            <h1 className="text-6xl md:text-7xl font-black mb-4 text-cream">
+              <GlowText color="blue">مراجعات</GlowText> الألعاب
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            <p className="text-xl text-cream-muted max-w-3xl mx-auto">
               تحليل متعمق لأحدث وأفضل الألعاب مع تقييمات شاملة
             </p>
           </motion.div>
@@ -93,20 +95,20 @@ export default function ReviewsPage() {
             className="max-w-4xl mx-auto"
           >
             <div className="relative">
-              <Search className="absolute right-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-slate-400" />
+              <Search className="absolute right-6 top-1/2 transform -translate-y-1/2 w-6 h-6 text-cream-muted" />
               <input
                 type="text"
                 placeholder="ابحث عن مراجعة أو لعبة..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-slate-900/50 backdrop-blur-xl border-2 border-slate-700 rounded-2xl pr-16 pl-6 py-5 text-lg focus:outline-none focus:border-purple-500 transition-all text-right"
+                className="w-full input-gaming rounded-2xl pr-16 pl-6 py-5 text-lg text-right"
               />
               {searchQuery && (
                 <motion.button
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   onClick={() => setSearchQuery('')}
-                  className="absolute left-6 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
+                  className="absolute left-6 top-1/2 transform -translate-y-1/2 text-cream-muted hover:text-cream transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </motion.button>
@@ -124,8 +126,8 @@ export default function ReviewsPage() {
           className="mb-8"
         >
           <div className="flex items-center gap-3 mb-4">
-            <Filter className="w-6 h-6 text-purple-400" />
-            <h2 className="text-2xl font-bold">التصنيفات</h2>
+            <Filter className="w-6 h-6 text-blue-400" />
+            <h2 className="text-2xl font-bold text-cream">التصنيفات</h2>
           </div>
           <div className="flex flex-wrap gap-3">
             <motion.button
@@ -134,8 +136,8 @@ export default function ReviewsPage() {
               onClick={() => setSelectedGenre(null)}
               className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                 !selectedGenre
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                  : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50'
+                  ? 'btn-primary glow-blue'
+                  : 'btn-ghost'
               }`}
             >
               الكل
@@ -151,8 +153,8 @@ export default function ReviewsPage() {
                 onClick={() => setSelectedGenre(genre)}
                 className={`px-6 py-3 rounded-xl font-semibold transition-all ${
                   selectedGenre === genre
-                    ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg'
-                    : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50'
+                    ? 'btn-primary glow-blue'
+                    : 'btn-ghost'
                 }`}
               >
                 {genre}
@@ -164,12 +166,12 @@ export default function ReviewsPage() {
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="animate-pulse">
-                <GamingCard className="p-6">
-                  <div className="aspect-video bg-slate-700 rounded-lg mb-4" />
-                  <div className="h-6 bg-slate-700 rounded mb-2" />
-                  <div className="h-4 bg-slate-700 rounded w-2/3" />
-                </GamingCard>
+              <div key={i} className="surface rounded-xl overflow-hidden">
+                <div className="aspect-video skeleton-shimmer" />
+                <div className="p-6">
+                  <div className="h-6 w-3/4 skeleton-shimmer rounded mb-2" />
+                  <div className="h-4 w-2/3 skeleton-shimmer rounded" />
+                </div>
               </div>
             ))}
           </div>
@@ -191,12 +193,12 @@ export default function ReviewsPage() {
                         alt={review.title}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-transparent" />
 
                       <div className="absolute top-4 right-4">
-                        <div className="flex items-center gap-2 bg-yellow-500/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                          <Star className="w-5 h-5 fill-white text-white" />
-                          <span className="font-black text-white text-lg">{review.rating}</span>
+                        <div className="flex items-center gap-2 bg-amber-500/90 backdrop-blur-sm px-4 py-2 rounded-full">
+                          <Star className="w-5 h-5 fill-cream text-cream" />
+                          <span className="font-black text-cream text-lg">{review.rating}</span>
                         </div>
                       </div>
 
@@ -209,15 +211,15 @@ export default function ReviewsPage() {
                     </div>
 
                     <div className="p-6">
-                      <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-purple-400 transition-colors text-right">
+                      <h3 className="text-xl font-bold mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors text-right text-cream">
                         {review.title}
                       </h3>
 
-                      <p className="text-slate-400 text-sm mb-4 line-clamp-2 text-right">
+                      <p className="text-cream-muted text-sm mb-4 line-clamp-2 text-right">
                         {review.excerpt}
                       </p>
 
-                      <div className="flex items-center justify-between text-sm text-slate-500 border-t border-slate-800 pt-4">
+                      <div className="flex items-center justify-between text-sm text-cream-muted border-t border-neon-blue/10 pt-4">
                         <div className="flex items-center gap-4">
                           <div className="flex items-center gap-1">
                             <Heart className="w-4 h-4" />
@@ -228,7 +230,7 @@ export default function ReviewsPage() {
                             <span>{review.views_count}</span>
                           </div>
                         </div>
-                        <span className="text-slate-400">{review.author_name}</span>
+                        <span className="text-cream-muted">{review.author_name}</span>
                       </div>
                     </div>
                   </GamingCard>
@@ -244,8 +246,8 @@ export default function ReviewsPage() {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <Gamepad2 className="w-20 h-20 text-slate-700 mx-auto mb-4" />
-            <p className="text-2xl text-slate-500">لم يتم العثور على مراجعات</p>
+            <Gamepad2 className="w-20 h-20 text-cream-muted/30 mx-auto mb-4" />
+            <p className="text-2xl text-cream-muted">لم يتم العثور على مراجعات</p>
           </motion.div>
         )}
       </div>
