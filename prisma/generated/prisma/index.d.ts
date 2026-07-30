@@ -2486,16 +2486,16 @@ export namespace Prisma {
    */
 
   export type GameCountOutputType = {
-    playRequests: number
     platforms: number
+    playRequests: number
     news: number
     reviews: number
     mediaItems: number
   }
 
   export type GameCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    playRequests?: boolean | GameCountOutputTypeCountPlayRequestsArgs
     platforms?: boolean | GameCountOutputTypeCountPlatformsArgs
+    playRequests?: boolean | GameCountOutputTypeCountPlayRequestsArgs
     news?: boolean | GameCountOutputTypeCountNewsArgs
     reviews?: boolean | GameCountOutputTypeCountReviewsArgs
     mediaItems?: boolean | GameCountOutputTypeCountMediaItemsArgs
@@ -2515,15 +2515,15 @@ export namespace Prisma {
   /**
    * GameCountOutputType without action
    */
-  export type GameCountOutputTypeCountPlayRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PlayRequestWhereInput
+  export type GameCountOutputTypeCountPlatformsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: GamePlatformWhereInput
   }
 
   /**
    * GameCountOutputType without action
    */
-  export type GameCountOutputTypeCountPlatformsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: GamePlatformWhereInput
+  export type GameCountOutputTypeCountPlayRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PlayRequestWhereInput
   }
 
   /**
@@ -4075,10 +4075,11 @@ export namespace Prisma {
     name: string | null
     slug: string | null
     description: string | null
-    coverImage: string | null
-    releaseDate: Date | null
     developer: string | null
     publisher: string | null
+    coverImage: string | null
+    releaseDate: Date | null
+    gameType: string | null
     createdAt: Date | null
   }
 
@@ -4087,10 +4088,11 @@ export namespace Prisma {
     name: string | null
     slug: string | null
     description: string | null
-    coverImage: string | null
-    releaseDate: Date | null
     developer: string | null
     publisher: string | null
+    coverImage: string | null
+    releaseDate: Date | null
+    gameType: string | null
     createdAt: Date | null
   }
 
@@ -4099,10 +4101,11 @@ export namespace Prisma {
     name: number
     slug: number
     description: number
-    coverImage: number
-    releaseDate: number
     developer: number
     publisher: number
+    coverImage: number
+    releaseDate: number
+    gameType: number
     createdAt: number
     _all: number
   }
@@ -4113,10 +4116,11 @@ export namespace Prisma {
     name?: true
     slug?: true
     description?: true
-    coverImage?: true
-    releaseDate?: true
     developer?: true
     publisher?: true
+    coverImage?: true
+    releaseDate?: true
+    gameType?: true
     createdAt?: true
   }
 
@@ -4125,10 +4129,11 @@ export namespace Prisma {
     name?: true
     slug?: true
     description?: true
-    coverImage?: true
-    releaseDate?: true
     developer?: true
     publisher?: true
+    coverImage?: true
+    releaseDate?: true
+    gameType?: true
     createdAt?: true
   }
 
@@ -4137,10 +4142,11 @@ export namespace Prisma {
     name?: true
     slug?: true
     description?: true
-    coverImage?: true
-    releaseDate?: true
     developer?: true
     publisher?: true
+    coverImage?: true
+    releaseDate?: true
+    gameType?: true
     createdAt?: true
     _all?: true
   }
@@ -4222,10 +4228,11 @@ export namespace Prisma {
     name: string
     slug: string
     description: string | null
-    coverImage: string | null
-    releaseDate: Date | null
     developer: string | null
     publisher: string | null
+    coverImage: string | null
+    releaseDate: Date | null
+    gameType: string | null
     createdAt: Date
     _count: GameCountAggregateOutputType | null
     _min: GameMinAggregateOutputType | null
@@ -4251,13 +4258,14 @@ export namespace Prisma {
     name?: boolean
     slug?: boolean
     description?: boolean
-    coverImage?: boolean
-    releaseDate?: boolean
     developer?: boolean
     publisher?: boolean
+    coverImage?: boolean
+    releaseDate?: boolean
+    gameType?: boolean
     createdAt?: boolean
-    playRequests?: boolean | Game$playRequestsArgs<ExtArgs>
     platforms?: boolean | Game$platformsArgs<ExtArgs>
+    playRequests?: boolean | Game$playRequestsArgs<ExtArgs>
     news?: boolean | Game$newsArgs<ExtArgs>
     reviews?: boolean | Game$reviewsArgs<ExtArgs>
     mediaItems?: boolean | Game$mediaItemsArgs<ExtArgs>
@@ -4271,17 +4279,18 @@ export namespace Prisma {
     name?: boolean
     slug?: boolean
     description?: boolean
-    coverImage?: boolean
-    releaseDate?: boolean
     developer?: boolean
     publisher?: boolean
+    coverImage?: boolean
+    releaseDate?: boolean
+    gameType?: boolean
     createdAt?: boolean
   }
 
-  export type GameOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "description" | "coverImage" | "releaseDate" | "developer" | "publisher" | "createdAt", ExtArgs["result"]["game"]>
+  export type GameOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "slug" | "description" | "developer" | "publisher" | "coverImage" | "releaseDate" | "gameType" | "createdAt", ExtArgs["result"]["game"]>
   export type GameInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    playRequests?: boolean | Game$playRequestsArgs<ExtArgs>
     platforms?: boolean | Game$platformsArgs<ExtArgs>
+    playRequests?: boolean | Game$playRequestsArgs<ExtArgs>
     news?: boolean | Game$newsArgs<ExtArgs>
     reviews?: boolean | Game$reviewsArgs<ExtArgs>
     mediaItems?: boolean | Game$mediaItemsArgs<ExtArgs>
@@ -4291,8 +4300,8 @@ export namespace Prisma {
   export type $GamePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Game"
     objects: {
-      playRequests: Prisma.$PlayRequestPayload<ExtArgs>[]
       platforms: Prisma.$GamePlatformPayload<ExtArgs>[]
+      playRequests: Prisma.$PlayRequestPayload<ExtArgs>[]
       news: Prisma.$NewsPayload<ExtArgs>[]
       reviews: Prisma.$ReviewPayload<ExtArgs>[]
       mediaItems: Prisma.$MediaItemPayload<ExtArgs>[]
@@ -4302,10 +4311,11 @@ export namespace Prisma {
       name: string
       slug: string
       description: string | null
-      coverImage: string | null
-      releaseDate: Date | null
       developer: string | null
       publisher: string | null
+      coverImage: string | null
+      releaseDate: Date | null
+      gameType: string | null
       createdAt: Date
     }, ExtArgs["result"]["game"]>
     composites: {}
@@ -4647,8 +4657,8 @@ export namespace Prisma {
    */
   export interface Prisma__GameClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    playRequests<T extends Game$playRequestsArgs<ExtArgs> = {}>(args?: Subset<T, Game$playRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     platforms<T extends Game$platformsArgs<ExtArgs> = {}>(args?: Subset<T, Game$platformsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$GamePlatformPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    playRequests<T extends Game$playRequestsArgs<ExtArgs> = {}>(args?: Subset<T, Game$playRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PlayRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     news<T extends Game$newsArgs<ExtArgs> = {}>(args?: Subset<T, Game$newsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     reviews<T extends Game$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, Game$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     mediaItems<T extends Game$mediaItemsArgs<ExtArgs> = {}>(args?: Subset<T, Game$mediaItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MediaItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -4685,10 +4695,11 @@ export namespace Prisma {
     readonly name: FieldRef<"Game", 'String'>
     readonly slug: FieldRef<"Game", 'String'>
     readonly description: FieldRef<"Game", 'String'>
-    readonly coverImage: FieldRef<"Game", 'String'>
-    readonly releaseDate: FieldRef<"Game", 'DateTime'>
     readonly developer: FieldRef<"Game", 'String'>
     readonly publisher: FieldRef<"Game", 'String'>
+    readonly coverImage: FieldRef<"Game", 'String'>
+    readonly releaseDate: FieldRef<"Game", 'DateTime'>
+    readonly gameType: FieldRef<"Game", 'String'>
     readonly createdAt: FieldRef<"Game", 'DateTime'>
   }
     
@@ -5033,30 +5044,6 @@ export namespace Prisma {
   }
 
   /**
-   * Game.playRequests
-   */
-  export type Game$playRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PlayRequest
-     */
-    select?: PlayRequestSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the PlayRequest
-     */
-    omit?: PlayRequestOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PlayRequestInclude<ExtArgs> | null
-    where?: PlayRequestWhereInput
-    orderBy?: PlayRequestOrderByWithRelationInput | PlayRequestOrderByWithRelationInput[]
-    cursor?: PlayRequestWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: PlayRequestScalarFieldEnum | PlayRequestScalarFieldEnum[]
-  }
-
-  /**
    * Game.platforms
    */
   export type Game$platformsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5078,6 +5065,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: GamePlatformScalarFieldEnum | GamePlatformScalarFieldEnum[]
+  }
+
+  /**
+   * Game.playRequests
+   */
+  export type Game$playRequestsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlayRequest
+     */
+    select?: PlayRequestSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the PlayRequest
+     */
+    omit?: PlayRequestOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PlayRequestInclude<ExtArgs> | null
+    where?: PlayRequestWhereInput
+    orderBy?: PlayRequestOrderByWithRelationInput | PlayRequestOrderByWithRelationInput[]
+    cursor?: PlayRequestWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: PlayRequestScalarFieldEnum | PlayRequestScalarFieldEnum[]
   }
 
   /**
@@ -21874,10 +21885,11 @@ export namespace Prisma {
     name: 'name',
     slug: 'slug',
     description: 'description',
-    coverImage: 'coverImage',
-    releaseDate: 'releaseDate',
     developer: 'developer',
     publisher: 'publisher',
+    coverImage: 'coverImage',
+    releaseDate: 'releaseDate',
+    gameType: 'gameType',
     createdAt: 'createdAt'
   };
 
@@ -22123,9 +22135,10 @@ export namespace Prisma {
     name: 'name',
     slug: 'slug',
     description: 'description',
-    coverImage: 'coverImage',
     developer: 'developer',
-    publisher: 'publisher'
+    publisher: 'publisher',
+    coverImage: 'coverImage',
+    gameType: 'gameType'
   };
 
   export type GameOrderByRelevanceFieldEnum = (typeof GameOrderByRelevanceFieldEnum)[keyof typeof GameOrderByRelevanceFieldEnum]
@@ -22458,13 +22471,14 @@ export namespace Prisma {
     name?: StringFilter<"Game"> | string
     slug?: StringFilter<"Game"> | string
     description?: StringNullableFilter<"Game"> | string | null
-    coverImage?: StringNullableFilter<"Game"> | string | null
-    releaseDate?: DateTimeNullableFilter<"Game"> | Date | string | null
     developer?: StringNullableFilter<"Game"> | string | null
     publisher?: StringNullableFilter<"Game"> | string | null
+    coverImage?: StringNullableFilter<"Game"> | string | null
+    releaseDate?: DateTimeNullableFilter<"Game"> | Date | string | null
+    gameType?: StringNullableFilter<"Game"> | string | null
     createdAt?: DateTimeFilter<"Game"> | Date | string
-    playRequests?: PlayRequestListRelationFilter
     platforms?: GamePlatformListRelationFilter
+    playRequests?: PlayRequestListRelationFilter
     news?: NewsListRelationFilter
     reviews?: ReviewListRelationFilter
     mediaItems?: MediaItemListRelationFilter
@@ -22475,13 +22489,14 @@ export namespace Prisma {
     name?: SortOrder
     slug?: SortOrder
     description?: SortOrderInput | SortOrder
-    coverImage?: SortOrderInput | SortOrder
-    releaseDate?: SortOrderInput | SortOrder
     developer?: SortOrderInput | SortOrder
     publisher?: SortOrderInput | SortOrder
+    coverImage?: SortOrderInput | SortOrder
+    releaseDate?: SortOrderInput | SortOrder
+    gameType?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    playRequests?: PlayRequestOrderByRelationAggregateInput
     platforms?: GamePlatformOrderByRelationAggregateInput
+    playRequests?: PlayRequestOrderByRelationAggregateInput
     news?: NewsOrderByRelationAggregateInput
     reviews?: ReviewOrderByRelationAggregateInput
     mediaItems?: MediaItemOrderByRelationAggregateInput
@@ -22496,13 +22511,14 @@ export namespace Prisma {
     NOT?: GameWhereInput | GameWhereInput[]
     name?: StringFilter<"Game"> | string
     description?: StringNullableFilter<"Game"> | string | null
-    coverImage?: StringNullableFilter<"Game"> | string | null
-    releaseDate?: DateTimeNullableFilter<"Game"> | Date | string | null
     developer?: StringNullableFilter<"Game"> | string | null
     publisher?: StringNullableFilter<"Game"> | string | null
+    coverImage?: StringNullableFilter<"Game"> | string | null
+    releaseDate?: DateTimeNullableFilter<"Game"> | Date | string | null
+    gameType?: StringNullableFilter<"Game"> | string | null
     createdAt?: DateTimeFilter<"Game"> | Date | string
-    playRequests?: PlayRequestListRelationFilter
     platforms?: GamePlatformListRelationFilter
+    playRequests?: PlayRequestListRelationFilter
     news?: NewsListRelationFilter
     reviews?: ReviewListRelationFilter
     mediaItems?: MediaItemListRelationFilter
@@ -22513,10 +22529,11 @@ export namespace Prisma {
     name?: SortOrder
     slug?: SortOrder
     description?: SortOrderInput | SortOrder
-    coverImage?: SortOrderInput | SortOrder
-    releaseDate?: SortOrderInput | SortOrder
     developer?: SortOrderInput | SortOrder
     publisher?: SortOrderInput | SortOrder
+    coverImage?: SortOrderInput | SortOrder
+    releaseDate?: SortOrderInput | SortOrder
+    gameType?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     _count?: GameCountOrderByAggregateInput
     _max?: GameMaxOrderByAggregateInput
@@ -22531,10 +22548,11 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"Game"> | string
     slug?: StringWithAggregatesFilter<"Game"> | string
     description?: StringNullableWithAggregatesFilter<"Game"> | string | null
-    coverImage?: StringNullableWithAggregatesFilter<"Game"> | string | null
-    releaseDate?: DateTimeNullableWithAggregatesFilter<"Game"> | Date | string | null
     developer?: StringNullableWithAggregatesFilter<"Game"> | string | null
     publisher?: StringNullableWithAggregatesFilter<"Game"> | string | null
+    coverImage?: StringNullableWithAggregatesFilter<"Game"> | string | null
+    releaseDate?: DateTimeNullableWithAggregatesFilter<"Game"> | Date | string | null
+    gameType?: StringNullableWithAggregatesFilter<"Game"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Game"> | Date | string
   }
 
@@ -23781,13 +23799,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     platforms?: GamePlatformCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     news?: NewsCreateNestedManyWithoutGameInput
     reviews?: ReviewCreateNestedManyWithoutGameInput
     mediaItems?: MediaItemCreateNestedManyWithoutGameInput
@@ -23798,13 +23817,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     platforms?: GamePlatformUncheckedCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     news?: NewsUncheckedCreateNestedManyWithoutGameInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutGameInput
     mediaItems?: MediaItemUncheckedCreateNestedManyWithoutGameInput
@@ -23815,13 +23835,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     news?: NewsUpdateManyWithoutGameNestedInput
     reviews?: ReviewUpdateManyWithoutGameNestedInput
     mediaItems?: MediaItemUpdateManyWithoutGameNestedInput
@@ -23832,13 +23853,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUncheckedUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     news?: NewsUncheckedUpdateManyWithoutGameNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutGameNestedInput
     mediaItems?: MediaItemUncheckedUpdateManyWithoutGameNestedInput
@@ -23849,10 +23871,11 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
   }
 
@@ -23861,10 +23884,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -23873,10 +23897,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -25238,10 +25263,11 @@ export namespace Prisma {
     name?: SortOrder
     slug?: SortOrder
     description?: SortOrder
-    coverImage?: SortOrder
-    releaseDate?: SortOrder
     developer?: SortOrder
     publisher?: SortOrder
+    coverImage?: SortOrder
+    releaseDate?: SortOrder
+    gameType?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -25250,10 +25276,11 @@ export namespace Prisma {
     name?: SortOrder
     slug?: SortOrder
     description?: SortOrder
-    coverImage?: SortOrder
-    releaseDate?: SortOrder
     developer?: SortOrder
     publisher?: SortOrder
+    coverImage?: SortOrder
+    releaseDate?: SortOrder
+    gameType?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -25262,10 +25289,11 @@ export namespace Prisma {
     name?: SortOrder
     slug?: SortOrder
     description?: SortOrder
-    coverImage?: SortOrder
-    releaseDate?: SortOrder
     developer?: SortOrder
     publisher?: SortOrder
+    coverImage?: SortOrder
+    releaseDate?: SortOrder
+    gameType?: SortOrder
     createdAt?: SortOrder
   }
 
@@ -26508,18 +26536,18 @@ export namespace Prisma {
     deleteMany?: ReviewScalarWhereInput | ReviewScalarWhereInput[]
   }
 
-  export type PlayRequestCreateNestedManyWithoutGameInput = {
-    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
-    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
-    createMany?: PlayRequestCreateManyGameInputEnvelope
-    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-  }
-
   export type GamePlatformCreateNestedManyWithoutGameInput = {
     create?: XOR<GamePlatformCreateWithoutGameInput, GamePlatformUncheckedCreateWithoutGameInput> | GamePlatformCreateWithoutGameInput[] | GamePlatformUncheckedCreateWithoutGameInput[]
     connectOrCreate?: GamePlatformCreateOrConnectWithoutGameInput | GamePlatformCreateOrConnectWithoutGameInput[]
     createMany?: GamePlatformCreateManyGameInputEnvelope
     connect?: GamePlatformWhereUniqueInput | GamePlatformWhereUniqueInput[]
+  }
+
+  export type PlayRequestCreateNestedManyWithoutGameInput = {
+    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
+    createMany?: PlayRequestCreateManyGameInputEnvelope
+    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
   }
 
   export type NewsCreateNestedManyWithoutGameInput = {
@@ -26543,18 +26571,18 @@ export namespace Prisma {
     connect?: MediaItemWhereUniqueInput | MediaItemWhereUniqueInput[]
   }
 
-  export type PlayRequestUncheckedCreateNestedManyWithoutGameInput = {
-    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
-    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
-    createMany?: PlayRequestCreateManyGameInputEnvelope
-    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-  }
-
   export type GamePlatformUncheckedCreateNestedManyWithoutGameInput = {
     create?: XOR<GamePlatformCreateWithoutGameInput, GamePlatformUncheckedCreateWithoutGameInput> | GamePlatformCreateWithoutGameInput[] | GamePlatformUncheckedCreateWithoutGameInput[]
     connectOrCreate?: GamePlatformCreateOrConnectWithoutGameInput | GamePlatformCreateOrConnectWithoutGameInput[]
     createMany?: GamePlatformCreateManyGameInputEnvelope
     connect?: GamePlatformWhereUniqueInput | GamePlatformWhereUniqueInput[]
+  }
+
+  export type PlayRequestUncheckedCreateNestedManyWithoutGameInput = {
+    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
+    createMany?: PlayRequestCreateManyGameInputEnvelope
+    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
   }
 
   export type NewsUncheckedCreateNestedManyWithoutGameInput = {
@@ -26582,20 +26610,6 @@ export namespace Prisma {
     set?: Date | string | null
   }
 
-  export type PlayRequestUpdateManyWithoutGameNestedInput = {
-    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
-    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
-    upsert?: PlayRequestUpsertWithWhereUniqueWithoutGameInput | PlayRequestUpsertWithWhereUniqueWithoutGameInput[]
-    createMany?: PlayRequestCreateManyGameInputEnvelope
-    set?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    disconnect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    delete?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    update?: PlayRequestUpdateWithWhereUniqueWithoutGameInput | PlayRequestUpdateWithWhereUniqueWithoutGameInput[]
-    updateMany?: PlayRequestUpdateManyWithWhereWithoutGameInput | PlayRequestUpdateManyWithWhereWithoutGameInput[]
-    deleteMany?: PlayRequestScalarWhereInput | PlayRequestScalarWhereInput[]
-  }
-
   export type GamePlatformUpdateManyWithoutGameNestedInput = {
     create?: XOR<GamePlatformCreateWithoutGameInput, GamePlatformUncheckedCreateWithoutGameInput> | GamePlatformCreateWithoutGameInput[] | GamePlatformUncheckedCreateWithoutGameInput[]
     connectOrCreate?: GamePlatformCreateOrConnectWithoutGameInput | GamePlatformCreateOrConnectWithoutGameInput[]
@@ -26608,6 +26622,20 @@ export namespace Prisma {
     update?: GamePlatformUpdateWithWhereUniqueWithoutGameInput | GamePlatformUpdateWithWhereUniqueWithoutGameInput[]
     updateMany?: GamePlatformUpdateManyWithWhereWithoutGameInput | GamePlatformUpdateManyWithWhereWithoutGameInput[]
     deleteMany?: GamePlatformScalarWhereInput | GamePlatformScalarWhereInput[]
+  }
+
+  export type PlayRequestUpdateManyWithoutGameNestedInput = {
+    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
+    upsert?: PlayRequestUpsertWithWhereUniqueWithoutGameInput | PlayRequestUpsertWithWhereUniqueWithoutGameInput[]
+    createMany?: PlayRequestCreateManyGameInputEnvelope
+    set?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    disconnect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    delete?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    update?: PlayRequestUpdateWithWhereUniqueWithoutGameInput | PlayRequestUpdateWithWhereUniqueWithoutGameInput[]
+    updateMany?: PlayRequestUpdateManyWithWhereWithoutGameInput | PlayRequestUpdateManyWithWhereWithoutGameInput[]
+    deleteMany?: PlayRequestScalarWhereInput | PlayRequestScalarWhereInput[]
   }
 
   export type NewsUpdateManyWithoutGameNestedInput = {
@@ -26652,20 +26680,6 @@ export namespace Prisma {
     deleteMany?: MediaItemScalarWhereInput | MediaItemScalarWhereInput[]
   }
 
-  export type PlayRequestUncheckedUpdateManyWithoutGameNestedInput = {
-    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
-    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
-    upsert?: PlayRequestUpsertWithWhereUniqueWithoutGameInput | PlayRequestUpsertWithWhereUniqueWithoutGameInput[]
-    createMany?: PlayRequestCreateManyGameInputEnvelope
-    set?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    disconnect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    delete?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
-    update?: PlayRequestUpdateWithWhereUniqueWithoutGameInput | PlayRequestUpdateWithWhereUniqueWithoutGameInput[]
-    updateMany?: PlayRequestUpdateManyWithWhereWithoutGameInput | PlayRequestUpdateManyWithWhereWithoutGameInput[]
-    deleteMany?: PlayRequestScalarWhereInput | PlayRequestScalarWhereInput[]
-  }
-
   export type GamePlatformUncheckedUpdateManyWithoutGameNestedInput = {
     create?: XOR<GamePlatformCreateWithoutGameInput, GamePlatformUncheckedCreateWithoutGameInput> | GamePlatformCreateWithoutGameInput[] | GamePlatformUncheckedCreateWithoutGameInput[]
     connectOrCreate?: GamePlatformCreateOrConnectWithoutGameInput | GamePlatformCreateOrConnectWithoutGameInput[]
@@ -26678,6 +26692,20 @@ export namespace Prisma {
     update?: GamePlatformUpdateWithWhereUniqueWithoutGameInput | GamePlatformUpdateWithWhereUniqueWithoutGameInput[]
     updateMany?: GamePlatformUpdateManyWithWhereWithoutGameInput | GamePlatformUpdateManyWithWhereWithoutGameInput[]
     deleteMany?: GamePlatformScalarWhereInput | GamePlatformScalarWhereInput[]
+  }
+
+  export type PlayRequestUncheckedUpdateManyWithoutGameNestedInput = {
+    create?: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput> | PlayRequestCreateWithoutGameInput[] | PlayRequestUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: PlayRequestCreateOrConnectWithoutGameInput | PlayRequestCreateOrConnectWithoutGameInput[]
+    upsert?: PlayRequestUpsertWithWhereUniqueWithoutGameInput | PlayRequestUpsertWithWhereUniqueWithoutGameInput[]
+    createMany?: PlayRequestCreateManyGameInputEnvelope
+    set?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    disconnect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    delete?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    connect?: PlayRequestWhereUniqueInput | PlayRequestWhereUniqueInput[]
+    update?: PlayRequestUpdateWithWhereUniqueWithoutGameInput | PlayRequestUpdateWithWhereUniqueWithoutGameInput[]
+    updateMany?: PlayRequestUpdateManyWithWhereWithoutGameInput | PlayRequestUpdateManyWithWhereWithoutGameInput[]
+    deleteMany?: PlayRequestScalarWhereInput | PlayRequestScalarWhereInput[]
   }
 
   export type NewsUncheckedUpdateManyWithoutGameNestedInput = {
@@ -28525,6 +28553,26 @@ export namespace Prisma {
     gameId?: StringFilter<"Review"> | string
   }
 
+  export type GamePlatformCreateWithoutGameInput = {
+    id?: string
+    platform: PlatformCreateNestedOneWithoutGamesInput
+  }
+
+  export type GamePlatformUncheckedCreateWithoutGameInput = {
+    id?: string
+    platformId: string
+  }
+
+  export type GamePlatformCreateOrConnectWithoutGameInput = {
+    where: GamePlatformWhereUniqueInput
+    create: XOR<GamePlatformCreateWithoutGameInput, GamePlatformUncheckedCreateWithoutGameInput>
+  }
+
+  export type GamePlatformCreateManyGameInputEnvelope = {
+    data: GamePlatformCreateManyGameInput | GamePlatformCreateManyGameInput[]
+    skipDuplicates?: boolean
+  }
+
   export type PlayRequestCreateWithoutGameInput = {
     id?: string
     title: string
@@ -28560,26 +28608,6 @@ export namespace Prisma {
 
   export type PlayRequestCreateManyGameInputEnvelope = {
     data: PlayRequestCreateManyGameInput | PlayRequestCreateManyGameInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type GamePlatformCreateWithoutGameInput = {
-    id?: string
-    platform: PlatformCreateNestedOneWithoutGamesInput
-  }
-
-  export type GamePlatformUncheckedCreateWithoutGameInput = {
-    id?: string
-    platformId: string
-  }
-
-  export type GamePlatformCreateOrConnectWithoutGameInput = {
-    where: GamePlatformWhereUniqueInput
-    create: XOR<GamePlatformCreateWithoutGameInput, GamePlatformUncheckedCreateWithoutGameInput>
-  }
-
-  export type GamePlatformCreateManyGameInputEnvelope = {
-    data: GamePlatformCreateManyGameInput | GamePlatformCreateManyGameInput[]
     skipDuplicates?: boolean
   }
 
@@ -28731,22 +28759,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type PlayRequestUpsertWithWhereUniqueWithoutGameInput = {
-    where: PlayRequestWhereUniqueInput
-    update: XOR<PlayRequestUpdateWithoutGameInput, PlayRequestUncheckedUpdateWithoutGameInput>
-    create: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput>
-  }
-
-  export type PlayRequestUpdateWithWhereUniqueWithoutGameInput = {
-    where: PlayRequestWhereUniqueInput
-    data: XOR<PlayRequestUpdateWithoutGameInput, PlayRequestUncheckedUpdateWithoutGameInput>
-  }
-
-  export type PlayRequestUpdateManyWithWhereWithoutGameInput = {
-    where: PlayRequestScalarWhereInput
-    data: XOR<PlayRequestUpdateManyMutationInput, PlayRequestUncheckedUpdateManyWithoutGameInput>
-  }
-
   export type GamePlatformUpsertWithWhereUniqueWithoutGameInput = {
     where: GamePlatformWhereUniqueInput
     update: XOR<GamePlatformUpdateWithoutGameInput, GamePlatformUncheckedUpdateWithoutGameInput>
@@ -28770,6 +28782,22 @@ export namespace Prisma {
     id?: StringFilter<"GamePlatform"> | string
     gameId?: StringFilter<"GamePlatform"> | string
     platformId?: StringFilter<"GamePlatform"> | string
+  }
+
+  export type PlayRequestUpsertWithWhereUniqueWithoutGameInput = {
+    where: PlayRequestWhereUniqueInput
+    update: XOR<PlayRequestUpdateWithoutGameInput, PlayRequestUncheckedUpdateWithoutGameInput>
+    create: XOR<PlayRequestCreateWithoutGameInput, PlayRequestUncheckedCreateWithoutGameInput>
+  }
+
+  export type PlayRequestUpdateWithWhereUniqueWithoutGameInput = {
+    where: PlayRequestWhereUniqueInput
+    data: XOR<PlayRequestUpdateWithoutGameInput, PlayRequestUncheckedUpdateWithoutGameInput>
+  }
+
+  export type PlayRequestUpdateManyWithWhereWithoutGameInput = {
+    where: PlayRequestScalarWhereInput
+    data: XOR<PlayRequestUpdateManyMutationInput, PlayRequestUncheckedUpdateManyWithoutGameInput>
   }
 
   export type NewsUpsertWithWhereUniqueWithoutGameInput = {
@@ -28903,10 +28931,11 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
     playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     news?: NewsCreateNestedManyWithoutGameInput
@@ -28919,10 +28948,11 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
     playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     news?: NewsUncheckedCreateNestedManyWithoutGameInput
@@ -28974,10 +29004,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     news?: NewsUpdateManyWithoutGameNestedInput
@@ -28990,10 +29021,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     news?: NewsUncheckedUpdateManyWithoutGameNestedInput
@@ -29076,13 +29108,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     platforms?: GamePlatformCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     news?: NewsCreateNestedManyWithoutGameInput
     reviews?: ReviewCreateNestedManyWithoutGameInput
   }
@@ -29092,13 +29125,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     platforms?: GamePlatformUncheckedCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     news?: NewsUncheckedCreateNestedManyWithoutGameInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutGameInput
   }
@@ -29241,13 +29275,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     news?: NewsUpdateManyWithoutGameNestedInput
     reviews?: ReviewUpdateManyWithoutGameNestedInput
   }
@@ -29257,13 +29292,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUncheckedUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     news?: NewsUncheckedUpdateManyWithoutGameNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutGameNestedInput
   }
@@ -30154,13 +30190,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     platforms?: GamePlatformCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     reviews?: ReviewCreateNestedManyWithoutGameInput
     mediaItems?: MediaItemCreateNestedManyWithoutGameInput
   }
@@ -30170,13 +30207,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     platforms?: GamePlatformUncheckedCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     reviews?: ReviewUncheckedCreateNestedManyWithoutGameInput
     mediaItems?: MediaItemUncheckedCreateNestedManyWithoutGameInput
   }
@@ -30267,13 +30305,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     reviews?: ReviewUpdateManyWithoutGameNestedInput
     mediaItems?: MediaItemUpdateManyWithoutGameNestedInput
   }
@@ -30283,13 +30322,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUncheckedUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     reviews?: ReviewUncheckedUpdateManyWithoutGameNestedInput
     mediaItems?: MediaItemUncheckedUpdateManyWithoutGameNestedInput
   }
@@ -30356,13 +30396,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     platforms?: GamePlatformCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestCreateNestedManyWithoutGameInput
     news?: NewsCreateNestedManyWithoutGameInput
     mediaItems?: MediaItemCreateNestedManyWithoutGameInput
   }
@@ -30372,13 +30413,14 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
-    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     platforms?: GamePlatformUncheckedCreateNestedManyWithoutGameInput
+    playRequests?: PlayRequestUncheckedCreateNestedManyWithoutGameInput
     news?: NewsUncheckedCreateNestedManyWithoutGameInput
     mediaItems?: MediaItemUncheckedCreateNestedManyWithoutGameInput
   }
@@ -30487,13 +30529,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUpdateManyWithoutGameNestedInput
     news?: NewsUpdateManyWithoutGameNestedInput
     mediaItems?: MediaItemUpdateManyWithoutGameNestedInput
   }
@@ -30503,13 +30546,14 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     platforms?: GamePlatformUncheckedUpdateManyWithoutGameNestedInput
+    playRequests?: PlayRequestUncheckedUpdateManyWithoutGameNestedInput
     news?: NewsUncheckedUpdateManyWithoutGameNestedInput
     mediaItems?: MediaItemUncheckedUpdateManyWithoutGameNestedInput
   }
@@ -30935,10 +30979,11 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
     platforms?: GamePlatformCreateNestedManyWithoutGameInput
     news?: NewsCreateNestedManyWithoutGameInput
@@ -30951,10 +30996,11 @@ export namespace Prisma {
     name: string
     slug: string
     description?: string | null
-    coverImage?: string | null
-    releaseDate?: Date | string | null
     developer?: string | null
     publisher?: string | null
+    coverImage?: string | null
+    releaseDate?: Date | string | null
+    gameType?: string | null
     createdAt?: Date | string
     platforms?: GamePlatformUncheckedCreateNestedManyWithoutGameInput
     news?: NewsUncheckedCreateNestedManyWithoutGameInput
@@ -31072,10 +31118,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     platforms?: GamePlatformUpdateManyWithoutGameNestedInput
     news?: NewsUpdateManyWithoutGameNestedInput
@@ -31088,10 +31135,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     slug?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
-    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     developer?: NullableStringFieldUpdateOperationsInput | string | null
     publisher?: NullableStringFieldUpdateOperationsInput | string | null
+    coverImage?: NullableStringFieldUpdateOperationsInput | string | null
+    releaseDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    gameType?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     platforms?: GamePlatformUncheckedUpdateManyWithoutGameNestedInput
     news?: NewsUncheckedUpdateManyWithoutGameNestedInput
@@ -31892,6 +31940,11 @@ export namespace Prisma {
     gameId?: StringFieldUpdateOperationsInput | string
   }
 
+  export type GamePlatformCreateManyGameInput = {
+    id?: string
+    platformId: string
+  }
+
   export type PlayRequestCreateManyGameInput = {
     id?: string
     title: string
@@ -31902,11 +31955,6 @@ export namespace Prisma {
     createdAt?: Date | string
     closedAt?: Date | string | null
     updatedAt?: Date | string
-  }
-
-  export type GamePlatformCreateManyGameInput = {
-    id?: string
-    platformId: string
   }
 
   export type NewsCreateManyGameInput = {
@@ -31962,6 +32010,21 @@ export namespace Prisma {
     authorId: string
   }
 
+  export type GamePlatformUpdateWithoutGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platform?: PlatformUpdateOneRequiredWithoutGamesNestedInput
+  }
+
+  export type GamePlatformUncheckedUpdateWithoutGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platformId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type GamePlatformUncheckedUpdateManyWithoutGameInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    platformId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type PlayRequestUpdateWithoutGameInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
@@ -32000,21 +32063,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     closedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type GamePlatformUpdateWithoutGameInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    platform?: PlatformUpdateOneRequiredWithoutGamesNestedInput
-  }
-
-  export type GamePlatformUncheckedUpdateWithoutGameInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    platformId?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type GamePlatformUncheckedUpdateManyWithoutGameInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    platformId?: StringFieldUpdateOperationsInput | string
   }
 
   export type NewsUpdateWithoutGameInput = {

@@ -32,6 +32,7 @@ interface GameData {
   releaseDate: string;
   coverImage: string;
   platforms: string[];
+  gameType: string;
 }
 
 interface SeedData {
@@ -144,6 +145,8 @@ async function main() {
             publisher: game.publisher,
             coverImage: game.coverImage,
             releaseDate: new Date(game.releaseDate),
+            gameType:
+              game.gameType === "multiplayer" ? "MULTIPLAYER" : "SINGLEPLAYER",
           },
           create: {
             name: game.name,
@@ -153,6 +156,8 @@ async function main() {
             publisher: game.publisher,
             coverImage: game.coverImage,
             releaseDate: new Date(game.releaseDate),
+            gameType:
+              game.gameType === "multiplayer" ? "MULTIPLAYER" : "SINGLEPLAYER",
           },
         });
 

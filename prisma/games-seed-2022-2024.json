@@ -1,12 +1,31 @@
 {
   "platforms": [
-    { "name": "PC", "slug": "pc", "icon": "💻" },
-    { "name": "PlayStation", "slug": "playstation", "icon": "🎮" },
-    { "name": "Xbox", "slug": "xbox", "icon": "🟢" },
-    { "name": "Nintendo Switch", "slug": "nintendo-switch", "icon": "🕹️" },
-    { "name": "Mobile", "slug": "mobile", "icon": "📱" }
+    {
+      "name": "PC",
+      "slug": "pc",
+      "icon": "💻"
+    },
+    {
+      "name": "PlayStation",
+      "slug": "playstation",
+      "icon": "🎮"
+    },
+    {
+      "name": "Xbox",
+      "slug": "xbox",
+      "icon": "🟢"
+    },
+    {
+      "name": "Nintendo Switch",
+      "slug": "nintendo-switch",
+      "icon": "🕹️"
+    },
+    {
+      "name": "Mobile",
+      "slug": "mobile",
+      "icon": "📱"
+    }
   ],
-
   "games": [
     {
       "name": "Baldur's Gate 3",
@@ -16,7 +35,8 @@
       "publisher": "Larian Studios",
       "releaseDate": "2023-08-03T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/b/bc/Baldur%27s_Gate_3_cover_art.jpg/440px-Baldur%27s_Gate_3_cover_art.jpg",
-      "platforms": ["pc", "playstation"]
+      "platforms": ["pc", "playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Alan Wake 2",
@@ -26,7 +46,8 @@
       "publisher": "Epic Games Publishing",
       "releaseDate": "2023-10-27T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Alan_Wake_2_cover_art.jpg/440px-Alan_Wake_2_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Starfield",
@@ -36,7 +57,8 @@
       "publisher": "Microsoft Game Studios",
       "releaseDate": "2023-09-06T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Starfield_cover_art.jpg/440px-Starfield_cover_art.jpg",
-      "platforms": ["pc", "xbox"]
+      "platforms": ["pc", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Spider-Man 2",
@@ -46,7 +68,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2023-10-20T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Spider-Man_2_box_art.jpg/440px-Spider-Man_2_box_art.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Final Fantasy XVI",
@@ -56,7 +79,8 @@
       "publisher": "Square Enix",
       "releaseDate": "2023-06-22T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Final_Fantasy_XVI_cover_art.jpg/440px-Final_Fantasy_XVI_cover_art.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Star Wars Jedi: Survivor",
@@ -66,7 +90,8 @@
       "publisher": "Electronic Arts",
       "releaseDate": "2023-04-28T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/43/Jedi_Survivor_cover_art.jpg/440px-Jedi_Survivor_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Diablo IV",
@@ -76,7 +101,8 @@
       "publisher": "Blizzard Entertainment",
       "releaseDate": "2023-06-06T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/87/Diablo_IV_cover_art.jpg/440px-Diablo_IV_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Dragon's Dogma 2",
@@ -86,7 +112,8 @@
       "publisher": "Capcom",
       "releaseDate": "2024-03-22T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Dragon%27s_Dogma_2_cover_art.jpg/440px-Dragon%27s_Dogma_2_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Black Myth: Wukong",
@@ -96,7 +123,8 @@
       "publisher": "Game Science",
       "releaseDate": "2024-08-20T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Black_Myth_Wukong_cover_art.jpg/440px-Black_Myth_Wukong_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Indiana Jones and the Great Circle",
@@ -106,7 +134,8 @@
       "publisher": "Microsoft Game Studios",
       "releaseDate": "2024-12-09T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Indiana_Jones_and_the_Great_Circle_cover.jpg/440px-Indiana_Jones_and_the_Great_Circle_cover.jpg",
-      "platforms": ["pc", "xbox"]
+      "platforms": ["pc", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Senua's Saga: Hellblade II",
@@ -116,7 +145,8 @@
       "publisher": "Xbox Game Studios",
       "releaseDate": "2024-05-21T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3c/Senuas_Saga_Hellblade_II_cover.jpg/440px-Senuas_Saga_Hellblade_II_cover.jpg",
-      "platforms": ["pc", "xbox"]
+      "platforms": ["pc", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Final Fantasy VII Rebirth",
@@ -126,7 +156,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2024-02-29T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Final_Fantasy_VII_Rebirth_cover_art.jpg/440px-Final_Fantasy_VII_Rebirth_cover_art.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Dragon Age: The Veilguard",
@@ -136,7 +167,8 @@
       "publisher": "Electronic Arts",
       "releaseDate": "2024-10-31T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/d/de/Dragon_Age_The_Veilguard_cover_art.jpg/440px-Dragon_Age_The_Veilguard_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Monster Hunter Wilds",
@@ -146,7 +178,8 @@
       "publisher": "Capcom",
       "releaseDate": "2025-02-28T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Monster_Hunter_Wilds_cover_art.jpg/440px-Monster_Hunter_Wilds_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Metaphor: ReFantazio",
@@ -156,7 +189,8 @@
       "publisher": "Atlus",
       "releaseDate": "2024-10-11T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Metaphor_ReFantazio_cover_art.jpg/440px-Metaphor_ReFantazio_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
@@ -166,7 +200,8 @@
       "publisher": "GSC Game World",
       "releaseDate": "2024-11-20T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/S.T.A.L.K.E.R._2_Heart_of_Chornobyl_cover_art.jpg/440px-S.T.A.L.K.E.R._2_Heart_of_Chornobyl_cover_art.jpg",
-      "platforms": ["pc", "xbox"]
+      "platforms": ["pc", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Grand Theft Auto VI",
@@ -176,7 +211,8 @@
       "publisher": "Rockstar Games",
       "releaseDate": "2025-09-14T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/Grand_Theft_Auto_VI_cover_art.jpg/440px-Grand_Theft_Auto_VI_cover_art.jpg",
-      "platforms": ["playstation", "xbox"]
+      "platforms": ["playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Avowed",
@@ -186,7 +222,8 @@
       "publisher": "Microsoft Game Studios",
       "releaseDate": "2025-02-18T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/2/2d/Avowed_cover_art.jpg/440px-Avowed_cover_art.jpg",
-      "platforms": ["pc", "xbox"]
+      "platforms": ["pc", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Doom: The Dark Ages",
@@ -196,7 +233,8 @@
       "publisher": "Bethesda Softworks",
       "releaseDate": "2025-05-15T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Doom_The_Dark_Ages_cover_art.jpg/440px-Doom_The_Dark_Ages_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Dragon Quest III HD-2D Remake",
@@ -206,7 +244,8 @@
       "publisher": "Square Enix",
       "releaseDate": "2026-01-14T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Dragon_Quest_III_HD-2D_Remake_cover_art.jpg/440px-Dragon_Quest_III_HD-2D_Remake_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"]
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"],
+      "gameType": "singleplayer"
     },
     {
       "name": "The Outer Worlds 2",
@@ -216,7 +255,8 @@
       "publisher": "Microsoft Game Studios",
       "releaseDate": "2025-03-06T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/The_Outer_Worlds_2_cover_art.jpg/440px-The_Outer_Worlds_2_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     }
   ]
 }

@@ -1,10 +1,16 @@
 import { prisma } from "../prisma/prisma";
+
+type GameFilter = {
+  gameType?: string;
+};
+
 export class GameRepository {
-  async getAll() {
+  async getAll(filter: GameFilter = {}) {
     return prisma.game.findMany({
-      orderBy: {
-        name: "asc",
+      where: {
+        ...(filter.gameType ? { gameType: filter.gameType } : {}),
       },
+      orderBy: { name: "asc" },
       select: {
         id: true,
         name: true,
@@ -19,14 +25,24 @@ export class GameRepository {
       select: { id: true },
     });
   }
-  async search(query: string) {
+
+  async findByIdWithFilter(id: string, filter: GameFilter = {}) {
+    return prisma.game.findFirst({
+      where: {
+        id,
+        ...(filter.gameType ? { gameType: filter.gameType } : {}),
+      },
+      select: { id: true },
+    });
+  }
+
+  async search(query: string, filter: GameFilter = {}) {
     return prisma.game.findMany({
       where: {
+        ...(filter.gameType ? { gameType: filter.gameType } : {}),
         OR: [{ name: { startsWith: query } }, { slug: { startsWith: query } }],
       },
-      orderBy: {
-        name: "asc",
-      },
+      orderBy: { name: "asc" },
       select: {
         id: true,
         name: true,
@@ -35,12 +51,14 @@ export class GameRepository {
       take: 10,
     });
   }
-  async getPopular(limit = 8) {
+
+  async getPopular(limit = 8, filter: GameFilter = {}) {
     return prisma.game.findMany({
       take: limit,
       where: {
+        ...(filter.gameType ? { gameType: filter.gameType } : {}),
         playRequests: {
-          some: {}, // فقط الألعاب اللي فيها playRequests واحد على الأقل
+          some: {},
         },
       },
       orderBy: {

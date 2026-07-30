@@ -47,22 +47,24 @@ model User {
 }
 
 model Game {
-  id          String    @id @default(uuid())
+  id          String    @id @default(cuid())
   name        String
   slug        String    @unique
-  description String?   @db.Text
-  coverImage  String?
-  releaseDate DateTime?
+  description String?
   developer   String?
   publisher   String?
-  createdAt   DateTime  @default(now())
+  coverImage  String?
+  releaseDate DateTime?
 
+  gameType String? // أو String إذا بدك يكون إجباري
+
+  createdAt DateTime @default(now())
+
+  platforms    GamePlatform[]
   playRequests PlayRequest[]
-
-  platforms  GamePlatform[]
-  news       News[]
-  reviews    Review[]
-  mediaItems MediaItem[]
+  news         News[]
+  reviews      Review[]
+  mediaItems   MediaItem[]
 
   @@map("games")
 }

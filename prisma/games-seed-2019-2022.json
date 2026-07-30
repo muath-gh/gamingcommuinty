@@ -1,12 +1,31 @@
 {
   "platforms": [
-    { "name": "PC", "slug": "pc", "icon": "💻" },
-    { "name": "PlayStation", "slug": "playstation", "icon": "🎮" },
-    { "name": "Xbox", "slug": "xbox", "icon": "🟢" },
-    { "name": "Nintendo Switch", "slug": "nintendo-switch", "icon": "🕹️" },
-    { "name": "Mobile", "slug": "mobile", "icon": "📱" }
+    {
+      "name": "PC",
+      "slug": "pc",
+      "icon": "💻"
+    },
+    {
+      "name": "PlayStation",
+      "slug": "playstation",
+      "icon": "🎮"
+    },
+    {
+      "name": "Xbox",
+      "slug": "xbox",
+      "icon": "🟢"
+    },
+    {
+      "name": "Nintendo Switch",
+      "slug": "nintendo-switch",
+      "icon": "🕹️"
+    },
+    {
+      "name": "Mobile",
+      "slug": "mobile",
+      "icon": "📱"
+    }
   ],
-
   "games": [
     {
       "name": "Sekiro: Shadows Die Twice",
@@ -16,7 +35,8 @@
       "publisher": "Activision",
       "releaseDate": "2019-03-22T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Sekiro_Shadows_Die_Twice_box_art.jpg/440px-Sekiro_Shadows_Die_Twice_box_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Death Stranding",
@@ -26,7 +46,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2019-11-08T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Death_Stranding_box_art.jpg/440px-Death_Stranding_box_art.jpg",
-      "platforms": ["pc", "playstation"]
+      "platforms": ["pc", "playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Resident Evil 2 Remake",
@@ -36,7 +57,8 @@
       "publisher": "Capcom",
       "releaseDate": "2019-01-25T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Resident_Evil_2_2019_cover.jpg/440px-Resident_Evil_2_2019_cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "The Division 2",
@@ -46,7 +68,8 @@
       "publisher": "Ubisoft",
       "releaseDate": "2019-03-15T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/The_Division_2_cover_art.jpg/440px-The_Division_2_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "The Last of Us Part II",
@@ -56,7 +79,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2020-06-19T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/2/28/The_Last_of_Us_Part_II_cover.jpg/440px-The_Last_of_Us_Part_II_cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Ghost of Tsushima",
@@ -66,7 +90,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2020-07-17T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1a/Ghost_of_Tsushima_cover_art.jpg/440px-Ghost_of_Tsushima_cover_art.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Final Fantasy VII Remake",
@@ -76,7 +101,8 @@
       "publisher": "Square Enix",
       "releaseDate": "2020-04-10T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/Final_Fantasy_VII_Remake_box_art.png/440px-Final_Fantasy_VII_Remake_box_art.png",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Cyberpunk 2077",
@@ -86,7 +112,8 @@
       "publisher": "CD Projekt Red",
       "releaseDate": "2020-12-10T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Cyberpunk_2077_cover.jpg/440px-Cyberpunk_2077_cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Assassin's Creed Valhalla",
@@ -96,7 +123,8 @@
       "publisher": "Ubisoft",
       "releaseDate": "2020-11-10T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0b/Assassin%27s_Creed_Valhalla_cover.jpg/440px-Assassin%27s_Creed_Valhalla_cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Halo Infinite",
@@ -106,7 +134,8 @@
       "publisher": "Xbox Game Studios",
       "releaseDate": "2021-12-08T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Halo_Infinite_box_art.jpg/440px-Halo_Infinite_box_art.jpg",
-      "platforms": ["pc", "xbox"]
+      "platforms": ["pc", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Resident Evil Village",
@@ -116,7 +145,8 @@
       "publisher": "Capcom",
       "releaseDate": "2021-05-09T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Resident_Evil_Village_cover_art.jpg/440px-Resident_Evil_Village_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "It Takes Two",
@@ -126,7 +156,8 @@
       "publisher": "Electronic Arts",
       "releaseDate": "2021-03-26T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/2/29/It_Takes_Two_cover_art.jpg/440px-It_Takes_Two_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Hitman 3",
@@ -136,7 +167,8 @@
       "publisher": "IO Interactive",
       "releaseDate": "2021-01-20T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c0/Hitman_3_cover_art.jpg/440px-Hitman_3_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Guardians of the Galaxy",
@@ -146,7 +178,8 @@
       "publisher": "Square Enix",
       "releaseDate": "2021-10-26T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Marvel%27s_Guardians_of_the_Galaxy_video_game_cover.jpg/440px-Marvel%27s_Guardians_of_the_Galaxy_video_game_cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Far Cry 6",
@@ -156,7 +189,8 @@
       "publisher": "Ubisoft",
       "releaseDate": "2021-10-07T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Far_Cry_6_cover.jpg/440px-Far_Cry_6_cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Back 4 Blood",
@@ -166,7 +200,8 @@
       "publisher": "Warner Bros. Games",
       "releaseDate": "2021-10-12T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Back_4_Blood_cover_art.jpg/440px-Back_4_Blood_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Elden Ring",
@@ -176,7 +211,8 @@
       "publisher": "Bandai Namco",
       "releaseDate": "2022-02-25T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/Elden_Ring_Box_art.jpg/440px-Elden_Ring_Box_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "God of War Ragnarök",
@@ -186,7 +222,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2022-11-09T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/God_of_War_Ragnar%C3%B6k_cover.jpg/440px-God_of_War_Ragnar%C3%B6k_cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Dying Light 2: Stay Human",
@@ -196,7 +233,8 @@
       "publisher": "Techland",
       "releaseDate": "2022-02-04T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Dying_Light_2_Stay_Human_Cover.jpg/440px-Dying_Light_2_Stay_Human_Cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Horizon Forbidden West",
@@ -206,7 +244,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2022-02-18T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/Horizon_Forbidden_West_Cover.jpg/440px-Horizon_Forbidden_West_Cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Gran Turismo 7",
@@ -216,7 +255,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2022-03-04T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/9/9b/Gran_Turismo_7_cover.jpg/440px-Gran_Turismo_7_cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "multiplayer"
     }
   ]
 }

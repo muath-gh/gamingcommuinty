@@ -41,7 +41,7 @@ export function GameAutocomplete({
 
     try {
       const response = await fetch(
-        `/api/games/search?q=${encodeURIComponent(searchQuery)}`,
+        `/api/games/search?q=${encodeURIComponent(searchQuery)}&type=multiplayer`,
       );
       const data = await response.json();
       setResults(data);

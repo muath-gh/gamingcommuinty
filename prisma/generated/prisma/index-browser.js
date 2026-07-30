@@ -136,10 +136,11 @@ exports.Prisma.GameScalarFieldEnum = {
   name: 'name',
   slug: 'slug',
   description: 'description',
-  coverImage: 'coverImage',
-  releaseDate: 'releaseDate',
   developer: 'developer',
   publisher: 'publisher',
+  coverImage: 'coverImage',
+  releaseDate: 'releaseDate',
+  gameType: 'gameType',
   createdAt: 'createdAt'
 };
 
@@ -322,9 +323,10 @@ exports.Prisma.GameOrderByRelevanceFieldEnum = {
   name: 'name',
   slug: 'slug',
   description: 'description',
-  coverImage: 'coverImage',
   developer: 'developer',
-  publisher: 'publisher'
+  publisher: 'publisher',
+  coverImage: 'coverImage',
+  gameType: 'gameType'
 };
 
 exports.Prisma.PlatformOrderByRelevanceFieldEnum = {

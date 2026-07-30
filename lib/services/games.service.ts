@@ -4,13 +4,21 @@ import { GameDTO, PopularGameDTO } from "../dto/game.dto";
 export class GameService {
   private repo = new GameRepository();
 
-  async getGamesForSelect(): Promise<GameDTO[]> {
-    const games = await this.repo.getAll();
+  async getGamesForSelect(multiplayerOnly = false): Promise<GameDTO[]> {
+    const games = await this.repo.getAll(
+      multiplayerOnly ? { gameType: "multiplayer" } : {},
+    );
     return games.map(this.toDTO);
   }
 
-  async validateGame(gameId: string): Promise<boolean> {
-    const game = await this.repo.findById(gameId);
+  async validateGame(
+    gameId: string,
+    multiplayerOnly = false,
+  ): Promise<boolean> {
+    const game = await this.repo.findByIdWithFilter(
+      gameId,
+      multiplayerOnly ? { gameType: "multiplayer" } : {},
+    );
     return !!game;
   }
 
@@ -22,14 +30,28 @@ export class GameService {
     };
   }
 
-  async getPopularGames(limit = 8): Promise<PopularGameDTO[]> {
-    const games = await this.repo.getPopular(limit);
+  async getPopularGames(
+    limit = 8,
+    multiplayerOnly = false,
+  ): Promise<PopularGameDTO[]> {
+    const games = await this.repo.getPopular(
+      limit,
+      multiplayerOnly ? { gameType: "multiplayer" } : {},
+    );
     return games.map(this.toPopularDTO);
   }
-  async searchGames(query: string): Promise<GameDTO[]> {
-    const games = await this.repo.search(query.trim());
+
+  async searchGames(
+    query: string,
+    multiplayerOnly = false,
+  ): Promise<GameDTO[]> {
+    const games = await this.repo.search(
+      query.trim(),
+      multiplayerOnly ? { gameType: "multiplayer" } : {},
+    );
     return games.map(this.toDTO);
   }
+
   private toPopularDTO(game: any): PopularGameDTO {
     return {
       id: game.id,

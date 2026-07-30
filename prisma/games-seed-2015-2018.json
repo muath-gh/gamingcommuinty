@@ -1,12 +1,31 @@
 {
   "platforms": [
-    { "name": "PC", "slug": "pc", "icon": "💻" },
-    { "name": "PlayStation", "slug": "playstation", "icon": "🎮" },
-    { "name": "Xbox", "slug": "xbox", "icon": "🟢" },
-    { "name": "Nintendo Switch", "slug": "nintendo-switch", "icon": "🕹️" },
-    { "name": "Mobile", "slug": "mobile", "icon": "📱" }
+    {
+      "name": "PC",
+      "slug": "pc",
+      "icon": "💻"
+    },
+    {
+      "name": "PlayStation",
+      "slug": "playstation",
+      "icon": "🎮"
+    },
+    {
+      "name": "Xbox",
+      "slug": "xbox",
+      "icon": "🟢"
+    },
+    {
+      "name": "Nintendo Switch",
+      "slug": "nintendo-switch",
+      "icon": "🕹️"
+    },
+    {
+      "name": "Mobile",
+      "slug": "mobile",
+      "icon": "📱"
+    }
   ],
-
   "games": [
     {
       "name": "The Witcher 3: Wild Hunt",
@@ -16,7 +35,8 @@
       "publisher": "CD Projekt Red",
       "releaseDate": "2015-05-19T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Witcher_3_cover_art.jpg/440px-Witcher_3_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"]
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Fallout 4",
@@ -26,7 +46,8 @@
       "publisher": "Bethesda Softworks",
       "releaseDate": "2015-11-10T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Fallout4Logo.jpg/440px-Fallout4Logo.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Uncharted 4: A Thief's End",
@@ -36,7 +57,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2016-05-10T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Uncharted_4_cover.jpg/440px-Uncharted_4_cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Overwatch",
@@ -46,7 +68,8 @@
       "publisher": "Blizzard Entertainment",
       "releaseDate": "2016-05-24T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Overwatch_cover_art.jpg/440px-Overwatch_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"]
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Dark Souls III",
@@ -56,7 +79,8 @@
       "publisher": "Bandai Namco",
       "releaseDate": "2016-04-12T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Dark_Souls_III_Cover_Art.jpg/440px-Dark_Souls_III_Cover_Art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "The Legend of Zelda: Breath of the Wild",
@@ -66,7 +90,8 @@
       "publisher": "Nintendo",
       "releaseDate": "2017-03-03T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg/440px-The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
-      "platforms": ["nintendo-switch"]
+      "platforms": ["nintendo-switch"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Persona 5",
@@ -76,7 +101,8 @@
       "publisher": "Atlus",
       "releaseDate": "2016-09-15T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Persona_5_cover.jpg/440px-Persona_5_cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "NieR: Automata",
@@ -86,7 +112,8 @@
       "publisher": "Square Enix",
       "releaseDate": "2017-02-23T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Nier_Automata_cover.jpg/440px-Nier_Automata_cover.jpg",
-      "platforms": ["pc", "playstation"]
+      "platforms": ["pc", "playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "PlayerUnknown's Battlegrounds",
@@ -96,7 +123,8 @@
       "publisher": "PUBG Corporation",
       "releaseDate": "2017-03-23T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/PUBG_cover_art.jpg/440px-PUBG_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox", "mobile"]
+      "platforms": ["pc", "playstation", "xbox", "mobile"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Destiny 2",
@@ -106,7 +134,8 @@
       "publisher": "Activision",
       "releaseDate": "2017-09-06T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d1/Destiny_2_cover.jpg/440px-Destiny_2_cover.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Super Mario Odyssey",
@@ -116,7 +145,8 @@
       "publisher": "Nintendo",
       "releaseDate": "2017-10-27T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1d/Super_Mario_Odyssey.jpg/440px-Super_Mario_Odyssey.jpg",
-      "platforms": ["nintendo-switch"]
+      "platforms": ["nintendo-switch"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Mario Kart 8 Deluxe",
@@ -126,7 +156,8 @@
       "publisher": "Nintendo",
       "releaseDate": "2017-04-28T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/0/0e/Mario_Kart_8_Deluxe.jpg/440px-Mario_Kart_8_Deluxe.jpg",
-      "platforms": ["nintendo-switch"]
+      "platforms": ["nintendo-switch"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Red Dead Redemption 2",
@@ -136,7 +167,8 @@
       "publisher": "Rockstar Games",
       "releaseDate": "2018-10-26T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Red_Dead_Redemption_II.jpg/440px-Red_Dead_Redemption_II.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "God of War",
@@ -146,7 +178,8 @@
       "publisher": "Sony Interactive Entertainment",
       "releaseDate": "2018-04-20T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/God_of_War_2018_game_cover.jpg/440px-God_of_War_2018_game_cover.jpg",
-      "platforms": ["playstation"]
+      "platforms": ["playstation"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Monster Hunter: World",
@@ -156,7 +189,8 @@
       "publisher": "Capcom",
       "releaseDate": "2018-01-26T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1f/Monster_Hunter_World_cover_art.jpg/440px-Monster_Hunter_World_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "singleplayer"
     },
     {
       "name": "Battlefield 1",
@@ -166,7 +200,8 @@
       "publisher": "Electronic Arts",
       "releaseDate": "2016-10-21T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Battlefield_1_cover_art.jpg/440px-Battlefield_1_cover_art.jpg",
-      "platforms": ["pc", "playstation", "xbox"]
+      "platforms": ["pc", "playstation", "xbox"],
+      "gameType": "multiplayer"
     },
     {
       "name": "Fortnite",
@@ -176,7 +211,8 @@
       "publisher": "Epic Games",
       "releaseDate": "2018-07-21T00:00:00.000Z",
       "coverImage": "https://upload.wikimedia.org/wikipedia/en/thumb/4/44/Fortnite_logo.svg/440px-Fortnite_logo.svg.png",
-      "platforms": ["pc", "playstation", "xbox", "nintendo-switch", "mobile"]
+      "platforms": ["pc", "playstation", "xbox", "nintendo-switch", "mobile"],
+      "gameType": "multiplayer"
     }
   ]
 }
