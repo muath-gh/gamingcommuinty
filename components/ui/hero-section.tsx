@@ -5,6 +5,7 @@ import { Shield, Users, LogOut, User as UserIcon } from 'lucide-react';
 import Link from 'next/link';
 import { useAuth } from '../../lib/providers/AuthProvider';
 import { GamingButton } from '@/components/gaming/GamingButton';
+import { PlayerAvatar } from '@/components/gaming/PlayerAvatar';
 
 export default function HeroAuthSection() {
   const { user, loading, isAuthenticated, logout } = useAuth();
@@ -38,22 +39,8 @@ export default function HeroAuthSection() {
           transition={{ delay: 0.8 }}
           className="relative group"
         >
-          <div className="relative glass-strong rounded-2xl px-6 py-3 flex items-center gap-4 neon-border-blue">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-neon-blue to-neon-red rounded-full blur-md opacity-40" />
-              <div className="relative w-11 h-11 bg-gradient-to-br from-neon-blue to-neon-red-deep rounded-full flex items-center justify-center">
-                {user.avatar ? (
-                  <img
-                    src={user.avatar}
-                    alt={user.name}
-                    className="w-full h-full rounded-full object-cover"
-                  />
-                ) : (
-                  <UserIcon className="w-5 h-5 text-cream" />
-                )}
-              </div>
-            </div>
-
+          <div className="relative glass-strong rounded-2xl px-6 py-3 flex items-center gap-4 neon-border-cyan">
+            <PlayerAvatar name={user.name} src={user.avatar ?? undefined} size="md" rank="platinum" showStatus online />
             <div>
               <p className="text-xs text-cream-muted">أهلاً بك</p>
               <p className="text-base font-bold text-cream">{user.name}</p>

@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        display: ['var(--font-display)', 'Cairo', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-body)', 'Cairo', 'system-ui', 'sans-serif'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -35,6 +39,7 @@ const config: Config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          deep: 'hsl(var(--primary-deep))',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -52,6 +57,7 @@ const config: Config = {
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
+          deep: 'hsl(var(--destructive-deep))',
         },
         success: {
           DEFAULT: 'hsl(var(--success))',
@@ -71,22 +77,39 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        // ── Ink ramp: layered near-black surfaces ──
         ink: {
-          950: '#090812',
-          900: '#0d0c1a',
-          800: '#152A50',
+          950: '#07090f',
+          925: '#0a0d16',
+          900: '#0d111c',
+          850: '#10141f',
+          800: '#141a28',
+          700: '#1b2233',
         },
+        // ── Neon ramp: signature accents ──
         neon: {
-          blue: '#20589A',
-          'blue-bright': '#2a6bb8',
-          red: '#9A1826',
-          'red-bright': '#b81e2e',
-          'red-deep': '#571920',
+          cyan: '#14b8c4',
+          'cyan-bright': '#2ad6e0',
+          'cyan-deep': '#0e7a86',
+          amber: '#f59e0b',
+          'amber-bright': '#fbbf24',
+          'amber-deep': '#b45309',
+          crimson: '#dc263a',
+          'crimson-bright': '#f43f5e',
+          'crimson-deep': '#9f1239',
         },
         cream: {
-          DEFAULT: '#F0E6E4',
-          muted: '#A0A0A8',
+          DEFAULT: '#f2efe6',
+          muted: '#9fb4c4',
+          dim: '#76849a',
         },
+      },
+      boxShadow: {
+        'glow-cyan': '0 0 18px rgba(20, 184, 196, 0.45), 0 0 48px rgba(20, 184, 196, 0.12)',
+        'glow-amber': '0 0 18px rgba(245, 158, 11, 0.45), 0 0 48px rgba(245, 158, 11, 0.12)',
+        'glow-crimson': '0 0 18px rgba(220, 38, 58, 0.45), 0 0 48px rgba(220, 38, 58, 0.12)',
+        'card': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.03), 0 8px 24px -12px rgba(0, 0, 0, 0.6)',
+        'card-hover': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(20, 184, 196, 0.18), 0 18px 40px -18px rgba(20, 184, 196, 0.35)',
       },
       keyframes: {
         'accordion-down': {

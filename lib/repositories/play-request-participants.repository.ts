@@ -5,7 +5,7 @@ export class PlayRequestParticipantRepository {
   async join(requestId: string, userId: string) {
     return prisma.playRequestParticipant.create({
       data: {
-        requestId,
+        playRequestId: requestId,
         userId,
       },
       select: { id: true },
@@ -15,8 +15,8 @@ export class PlayRequestParticipantRepository {
   async countAccepted(requestId: string) {
     return prisma.playRequestParticipant.count({
       where: {
-        requestId,
-        status: 'accepted',
+        playRequestId: requestId,
+        status: 'JOINED',
       },
     })
   }

@@ -11,10 +11,11 @@ export function PageContainer({ children }: PageContainerProps) {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className="min-h-screen ambient-bg text-cream p-6 md:p-8"
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className="min-h-screen ambient-bg text-cream p-4 sm:p-6 md:p-8"
     >
-      {children}
+      <div className="fixed inset-0 grid-pattern pointer-events-none opacity-30" />
+      <div className="relative">{children}</div>
     </motion.div>
   );
 }
